@@ -7,6 +7,10 @@ endfunction
 
 command! DeinCleanUp call <sid>dein_cleanup()
 
+"" vim-tmux-navigator
+"" ************************************************************
+let g:tmux_navigator_disable_when_zoomed = 1
+
 "" dimfocus.vim
 "" ************************************************************
 let g:dimfocus#fg = ['#727072', 248]
@@ -62,7 +66,6 @@ nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 "" lightline-hunks
 "" ***********************************************************
-" let g:lightline#hunks#disabled = 1
 let g:lightline#hunks#branch_symbol = '⎇  '
 
 "" lightline-dimfocus
@@ -127,6 +130,10 @@ let g:gitgutter_sign_modified = '┃' "'✹'
 let g:gitgutter_sign_removed = '◢' "'✖'
 let g:gitgutter_sign_modified_removed = '◥' "'✖'
 let g:gitgutter_sign_removed_first_line = '◢' "'✖'
+
+"" vim-commentary
+"" ***********************************************************
+map <silent> <A-\> :Commentary<cr>
 
 "" vim-ruby
 "" ***********************************************************

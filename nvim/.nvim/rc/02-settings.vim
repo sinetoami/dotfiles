@@ -21,14 +21,22 @@ colorscheme sinokai
 
 "" encoding
 set encoding=utf-8 " kind of characters which Vim can work with
-
-" set this options causes E213
-"set fileencoding=uft-8 " character encoding for the file of this buffer
-"set fileencodings=utf-8 " character encodings considered when edit an file.
-
+"" set this options causes E213
+" set fileencoding=uft-8 " character encoding for the file of this buffer
+" set fileencodings=utf-8 " character encodings considered when edit an file.
+""
 set bomb
 set binary
 set ttyfast
+
+"" backup/files
+set shortmess-=f " (file x of y) instead of (x of y)
+set shortmess+=c " don't give ins-completion-menu(:help) message.
+
+" no backup files, no write backup, no swap file 
+set nobackup
+set nowritebackup
+set noswapfile
 
 "" shell
 set showcmd
@@ -46,6 +54,9 @@ set autoread
 
 "" map leader
 let mapleader=','
+
+"" always show cursor
+set ruler
 
 "" cursor line
 set cursorline
@@ -89,8 +100,9 @@ set smarttab " inserts blanks according to 'shiftwidth'
 set expandtab " convert tabs to spaces
 set tabstop=2 " set tabsize in spaces (for manual indenting)
 set shiftwidth=2 " the number of spaces for tab (auto indent)
+set list listchars=tab:··,trail:· " chars to be used to show a tab and trails
 
 "" foldering
 set nofoldenable
 set foldmethod=indent
-set foldminlines=1
+set foldminlines=3

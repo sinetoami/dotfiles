@@ -8,14 +8,20 @@ if has('autocmd')
           \ endif
   augroup END
 
+  "" Auto execute zR command 
+  " Prevent za command to close all folders
+  augroup AutoOpenFolders
+    autocmd!
+    autocmd BufEnter * execute "normal! zR"
+  augroup END
+
   augroup TextFileTypeWrapper
     autocmd!
-    autocmd BufRead,BufNewFile *.txt,*.md call s:setupWrapping()
+    autocmd BufRead,BufNewFile *.txt,*.md,*.markdown call s:setupWrapping()
     if !exists('*s:setupWrapping')
       function s:setupWrapping()
         set wrap
-        set wrapmargin=2
-        set textwidth=75
+        set wrapmargin=1
       endfunction
     endif
   augroup END

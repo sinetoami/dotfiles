@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Generate a .gitconfig file
+
+function _gitconfig_template() {
+cat << EOF
+[user]
+    name = $GPG_USER_NAME
+    email = $GPG_USER_EMAIL
+    signingkey = $GPG_PUBKEY_HASH
+[core]
+    editor = $EDITOR
+EOF
+}
+
+_gitconfig_template > $HOME/.gitconfig

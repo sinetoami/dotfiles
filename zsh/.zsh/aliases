@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+## antibody
+alias ain="curl -sL git.io/antibody | sh -s" # install antibody simple way - [A]ntibody [IN]stall
+alias abp="antibody bundle < ~/.antibody.txt > ~/.antibody.sh" # [A]ntibody [B]undle [P]lugins
+alias aup="antibody update" # [A]ntibody [UP]date
+
+## manipulate files
+alias cat="bat"
+
+## git
+alias ggc="git-config-template" # [G]it [G]enerate [C]onfig
+alias gco="git-fzf-checkout" # [G]it [C]heck[O]ut
+alias gbr="git-fzf-branch +m" # [G]it [BR]anches
+alias gbd="git-fzf-branch -m | xargs git branch -D" # [G]it [B]ranch [D]elete
+alias gtg="git-fzf-tag +m" # [G]it [T]ags
+alias gtd="git-fzf-tag -m | xargs git tag -d" # [G]it [T]ag [D]elete

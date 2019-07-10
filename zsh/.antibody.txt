@@ -1,0 +1,16 @@
+# oh-my-zsh plugins
+robbyrussell/oh-my-zsh path:plugins/colored-man-pages
+robbyrussell/oh-my-zsh path:lib
+
+# completions
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+
+# prompt theme
+mafredri/zsh-async
+sindresorhus/pure
+
+# misc
+sinetoami/vi-mode
+supercrabtree/k

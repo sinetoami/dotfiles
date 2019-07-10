@@ -1,0 +1,7 @@
+syntax match rubyRocketOperator 	  "=>"
+syntax match rubyVariableOperator 	  "\(@@\|@\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)\@=\(@@\|@\)"
+syntax match rubyInstanceVariable 	  "\(@\)\@<=\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*"
+syntax match rubyClassVariable 		  "\(@@\)\@<=\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*"
+syntax match rubyBlockParametersDelimiter "\%(\%(\<do\>\|{\)\_s*\)\@32<=|"
+syntax match rubyBlockParametersDelimiter "\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\zs|"
+syntax match rubyNil 			  "\%#=1\<\(nil\)\>[?!]\@!"

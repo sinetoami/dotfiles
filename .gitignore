@@ -1,0 +1,4 @@
+*.terminfo
+*.netrwhist
+tmux/.tmux/plugins
+nvim/.nvim/bundle

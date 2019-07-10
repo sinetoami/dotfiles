@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+# mnemonic: [K]ill [P]rocess
+
+function kill_process() {
+  local pid
+  
+  if [ "$UID" != "0" ]; then
+    pid=$(ps -f -u $UID | sed 1d | eval "fzf -m --header='[kill:process]'" | awk '{print $2}')
+  else
+    pid=$(ps -ef | sed 1d | eval "fzf ${FZF_DEFAULT_OPTIONS} -m --header='[kill:process]'" | awk '{print $2}')
+  fi
+
+  if [ "x$pid" != "x" ]; then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+kill_process

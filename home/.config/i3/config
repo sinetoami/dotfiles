@@ -1,0 +1,303 @@
+#                .
+#  ,-. . ,-. ,-. |- ,-. ,-. ,-,-. .          . ,-.
+#  `-. | | | |-' |  | | ,-| | | | |    --    |  -<
+#  `-' ' ' ' `-' `' `-' `-^ ' ' ' '          ' `-'
+#
+#         	       GitHub:
+#    	  https://github.com/sinetoami/
+
+# NOTE:
+# This config file use environment variables.
+# Environment variables are setting up in $HOME/.xprofile
+
+## -------- GENERAL SETTINGS ------- ##
+
+# set modifier
+set $win      Mod4
+set $alt      Mod1
+set $lvds     LVDS1
+set $hdmi     HDMI1
+
+# set windows titles font
+# 0 - to use module/xwindow from polybar
+# font pango:Fira\ Sans\ Regular 0
+
+# Use Mouse+$win to drag floating windows to their wanted position
+floating_modifier $win
+
+# focus follows mouse
+focus_follows_mouse no
+
+
+## ----------- AUTOSTART ---------- ##
+# setting monitor layouts on system login/resume/hotplug
+exec --no-startup-id display-visor -i -l
+
+# general notifications
+exec --no-startup-id dunst --config ~/.config/dunst/dunstrc
+
+# come up to the system tray
+exec --no-startup-id nm-applet
+# exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id volumeicon
+# exec --no-startup-id rescuetime
+
+# greenclip
+exec --no-startup-id greenclip daemon
+
+# automatic lockscreen
+exec --no-startup-id xautolock -time 10 -locker "i3lock-next 'Type your Password'" -notify 30 -notifier "dunstify -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
+
+# composite
+#exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
+
+# volume notification
+# exec --no-startup-id volnoti -t 2 -a 0.4 -r 0
+
+# initialize mpd and musnify-mpd (notify to mpd)
+# exec --no-startup-id mpd
+# exec --no-startup-id musnify-mpd
+
+
+## --------- TERMINAL ----------- ##
+# OBS.: user environment variable $TERMINAL
+
+# start a terminal
+# bindsym $win+Return exec $TERMINAL
+bindsym $win+Return exec i3-sensible-terminal
+
+# exec samedir path
+# bindsym $win+Shift+Return exec xfce4-term-pwd
+
+
+## ------------ ROFI ------------ ##
+# start rofi (a program launcher)
+# Note: switch mode Ctrl+Tab or Shift+[Left,Right]
+bindsym $win+d exec rofi -show
+
+# needs rofi-calc package
+# bindsym $win+Control+c exec rofi -show calc -modi calc -no-show-match -no-sort
+
+# needs nmcli-rofi script
+# bindsym $win+n exec nmcli-rofi
+
+
+## ------------ RESTART/RELOAD/LOCKSCREEN/EXIST ------------ ##
+bindsym $win+Shift+r restart
+bindsym $win+Shift+c reload
+bindsym Control+$win+l exec --no-startup-id "i3lock-next 'Type your Password'"
+bindsym $win+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+## ------------ FOCUSING/MOVIMENT ------------ ##
+# kill focused window
+bindsym $win+Shift+q kill
+
+# change focus
+bindsym $win+j focus left
+bindsym $win+k focus down
+bindsym $win+l focus up
+bindsym $win+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $win+Left focus left
+bindsym $win+Down focus down
+bindsym $win+Up focus up
+bindsym $win+Right focus right
+
+# move focused window
+bindsym $win+Shift+j move left
+bindsym $win+Shift+k move down
+bindsym $win+Shift+l move up
+bindsym $win+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $win+Shift+Left move left
+bindsym $win+Shift+Down move down
+bindsym $win+Shift+Up move up
+bindsym $win+Shift+Right move right
+
+# split in horizontal/vertical orientation
+bindsym $win+h split h
+bindsym $win+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $win+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $win+s layout stacking
+bindsym $win+w layout tabbed
+bindsym $win+e layout toggle split
+
+# toggle tiling / floating
+bindsym $win+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $win+space focus mode_toggle
+
+# focus the parent container
+bindsym $win+a focus parent
+
+# focus the child container
+#bindsym $win+d focus child
+
+# next/previous workspace
+bindsym $alt+Tab focus right
+bindsym $alt+Shift+Tab focus left
+bindsym $alt+Control+Right workspace next
+bindsym $alt+Control+Left workspace prev
+bindsym $win+Tab workspace back_and_forth
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws0 "0"
+
+# switch to workspace
+bindsym $win+1 workspace $ws1
+bindsym $win+2 workspace $ws2
+bindsym $win+3 workspace $ws3
+bindsym $win+4 workspace $ws4
+bindsym $win+5 workspace $ws5
+bindsym $win+6 workspace $ws6
+bindsym $win+7 workspace $ws7
+bindsym $win+8 workspace $ws8
+bindsym $win+9 workspace $ws9
+bindsym $win+0 workspace $ws0
+
+# move focused container to workspace
+bindsym $win+Shift+1 move container to workspace $ws1
+bindsym $win+Shift+2 move container to workspace $ws2
+bindsym $win+Shift+3 move container to workspace $ws3
+bindsym $win+Shift+4 move container to workspace $ws4
+bindsym $win+Shift+5 move container to workspace $ws5
+bindsym $win+Shift+6 move container to workspace $ws6
+bindsym $win+Shift+7 move container to workspace $ws7
+bindsym $win+Shift+8 move container to workspace $ws8
+bindsym $win+Shift+9 move container to workspace $ws9
+bindsym $win+Shift+0 move container to workspace $ws0
+
+bindsym $win+Control+1 move container to workspace $ws1; workspace 1 
+bindsym $win+Control+2 move container to workspace $ws2; workspace 2
+bindsym $win+Control+3 move container to workspace $ws3; workspace 3
+bindsym $win+Control+4 move container to workspace $ws4; workspace 4
+bindsym $win+Control+5 move container to workspace $ws5; workspace 5
+bindsym $win+Control+6 move container to workspace $ws6; workspace 6
+bindsym $win+Control+7 move container to workspace $ws7; workspace 7
+bindsym $win+Control+8 move container to workspace $ws8; workspace 8
+bindsym $win+Control+9 move container to workspace $ws9; workspace 9
+bindsym $win+Control+0 move container to workspace $ws0; workspace 0
+
+workspace $ws1 output $hdmi
+workspace $ws2 output $hdmi
+workspace $ws3 output $hdmi
+workspace $ws4 output $hdmi
+workspace $ws5 output $hdmi
+workspace $ws6 output $hdmi
+workspace $ws0 output $lvds
+
+
+## ------------ WINDOWS/GAPS/STATUSBAR ------------ ##
+# Windows
+new_window none
+for_window [class=".*"] border pixel 3
+
+# Gaps
+bindsym $win+Shift+t		gaps inner current set 15; gaps outer current set 15
+bindsym $win+Shift+d		gaps inner current set 0; gaps outer current set 0
+
+bindsym $win+s		      gaps inner current plus 5
+bindsym $win+Shift+s		gaps inner current minus 5
+
+bindsym $win+z			    gaps outer current plus 5
+bindsym $win+Shift+z		gaps outer current minus 5
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $win+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $win+r mode "default"
+}
+
+bindsym $win+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+# LVDS monitor
+bar {
+  position top
+	output $lvds
+	status_command py3status -c ~/.config/i3/i3status-lvds.conf
+	tray_output $lvds
+  tray_padding 3
+
+	#font pango:Source Code Pro Black 9
+	font pango:DejaVu Sans Condensed Bold 8
+	colors {
+		background #19181a
+
+		# colorclass       border  backgr. text
+    focused_workspace  #a9dc76 #a9dc76 #1C1C1C
+    inactive_workspace #19181a #19181a #a9dc76
+		active_workspace   #19181a #19181a #a9dc76
+		urgent_workspace   #BD2C40 #BD2C40 #FFFFFF
+		binding_mode       #BD2C40 #BD2C40 #FFFFFF
+	}
+} 
+
+# HDMI/VGA monitor
+bar {
+  position top
+	output $hdmi
+	status_command py3status -c ~/.config/i3/i3status-hdmi.conf
+	tray_output $lvds
+  tray_padding 3
+
+	font pango:DejaVu Sans Condensed Bold 8
+	colors {
+		background #19181a
+
+		# colorclass       border  backgr. text
+    focused_workspace  #a9dc76 #a9dc76 #1C1C1C
+    inactive_workspace #19181a #19181a #a9dc76
+		active_workspace   #19181a #19181a #a9dc76
+		urgent_workspace   #BD2C40 #BD2C40 #FFFFFF
+		binding_mode       #BD2C40 #BD2C40 #FFFFFF
+	}
+} 
+
+# colour of                     border  backgr. text    indica. child_border
+client.focused                  #a9dc76 #a9dc76 #222222 #222222 #a9dc76
+client.focused_inactive         #222222 #222222 #AAAAAA #222222 #222222
+client.unfocused                #222222 #222222 #AAAAAA #222222 #222222
+client.urgent                   #BD2C40 #BD2C40 #AAAAAA #BD2C40 #BD2C40
+client.placeholder      	      #000000 #0c0c0c #ffffff #000000 #0c0c0c
+
+client.background 		#282C34

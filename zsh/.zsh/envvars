@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function __pub_key_hash {
+	gpg --keyid-format long --list-keys $GPG_USER_EMAIL | awk -F' ' '/^pub/ {print $2}' | awk -F'/' '{print $2}'
+}
+
+export GPG_PUBKEY_HASH=$(__pub_key_hash)

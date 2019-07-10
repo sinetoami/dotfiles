@@ -1,0 +1,146 @@
+! ------------------------------------------------------------------------------
+! Colour Configuration
+! ------------------------------------------------------------------------------
+
+! special
+*.foreground:   #FFFFFF
+*.background:   #2d2a2e
+*.cursorColor:  #FFFFFF
+
+! black
+*.color0: 	#2d2a2e
+*.color8: 	#7D7580
+
+! red
+*.color1: 	#FF443E
+*.color9: 	#FF443E
+
+! green
+*.color2: 	#A9DC76
+*.color10: 	#A9DC76
+
+! yellow
+*.color3: 	#FFD85B
+*.color11: 	#FFD85B
+
+! blue
+*.color4: 	#78DCE8
+*.color12:	#78DCE8
+
+! magenta
+*.color5: 	#FF6188
+*.color13: 	#FF6188
+
+! cyan
+*.color6: 	#18FF9E
+*.color14: 	#18FF9E
+
+! white
+*.color7: 	#FFFFFF
+*.color15: 	#FFFFFF
+
+! ------------------------------------------------------------------------------
+! URxvt Font configuration
+! ------------------------------------------------------------------------------
+
+! font spacing
+URxvt*letterSpace:	0
+URxvt.lineSpace:	3
+
+! font type
+URxvt*font:		xft:DroidSansMono Nerd Font:size=13
+
+! ------------------------------------------------------------------------------
+! URxvt configs
+! ------------------------------------------------------------------------------
+
+! general settings
+URxvt*title:			urxvt
+URxvt*termName: 		rxvt-unicode-256color
+URxvt*loginShell: 		true
+URxvt.xftAntialias:     	true
+URxvt.xftHinting:		true
+URxvt.iso14755: 		false
+URxvt.iso14755_52: 		false
+URxvt.print-pipe: 		"cat > /dev/null"
+URxvt.secondaryScreen: 		true
+URxvt.secondaryScroll: 		false
+URxvt*scrollTtyOutput: 		false
+URxvt*scrollWithBuffer: 	false
+URxvt*scrollTtyKeypress: 	true
+URxvt.secondaryWheel: 		true
+
+! perl extensions
+URxvt*perl-ext:
+URxvt*perl-ext-common:		default,clipboard,resize-font,url-select,keyboard-select
+
+! macros for clipboard and selection
+URxvt.clipboard.autocopy: 	true
+URxvt.copyCommand:		xclip -i -selection clipboard
+URxvt.pasteCommand:		xclip -o -selection clipboard
+URxvt.keysym.M-c: 		perl:clipboard:copy
+URxvt.keysym.M-v: 		perl:clipboard:paste
+URxvt.resize-font.smaller: 	M-Down
+URxvt.resize-font.bigger: 	M-Up
+URxvt.keysym.M-u: 		perl:url-select:select_next
+URxvt.keysym.M-s:		perl:keyboard-select:search
+URxvt.keysym.M-Escape:		perl:keyboard-select:activate
+URxvt.url-select.launcher: 	/usr/bin/xdg-open
+URxvt.url-select.underline: 	true
+URxvt.url-select.button: 	1
+
+! scroll one line
+!URxvt.keysym.Shift-Up:		command:\033]720;1\007
+!URxvt.keysym.Shift-Down:	command:\033]721;1\007
+
+! control arrow
+!URxvt.keysym.Control-Up:	\033[1;5A
+!URxvt.keysym.Control-Down:	\033[1;5B
+!URxvt.keysym.Control-Right:	\033[1;5C
+!URxvt.keysym.Control-Left:	\033[1;5D
+
+! appearance
+URxvt*depth:			24
+URxvt*scrollBar: 		false
+URxvt*scrollBar_right: 		false
+URxvt*internalBorder: 		10
+URxvt*externalBorder: 		0
+URxvt*urgentOnBell: 		true
+URxvt*visualBell:  		true
+URxvt*pointerBlank:		true
+URxvt*cursorBlink: 		true
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+! improve font rendering
+Xft.dpi: 	96
+Xft.antialias: 	true
+Xft.hinting: 	true
+Xft.rgba:	rgb
+Xft.autohint:  	false
+Xft.hintstyle:	hintslight
+Xft.lcdfilter:	lcddefault
+
+! ------------------------------------------------------------------------------
+! Rofi Configuration
+! ------------------------------------------------------------------------------
+! rofi.font:  Fira Sans Medium 16
+rofi.font: Source Code Pro Medium 16
+rofi.modi:  drun,window,run
+rofi.width: 35
+rofi.lines: 8
+
+rofi.color-enabled: true
+rofi.color-window:  #1c1c1c, #a9dc76, #2f343f
+rofi.color-normal:  #1c1c1c, #d8dee8, #1c1c1c, #1c1c1c, #ffd85d
+rofi.color-active:  #1c1c1c, #d8dee8, #1c1c1c, #1c1c1c, #ffd85d
+rofi.color-urgent:  #2e3440, #b48ead, #2e3440, #2e3440, #93e5cc
+rofi.bw: 4
+
+rofi.padding:         40
+rofi.fuzzy:           true
+rofi.terminal:        urxvtc
+rofi.separator-style: solid
+rofi.hide-scrollbar:  true
+rofi.monitor:         -1

@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# git-fzf-checkout - checkout git branch (including remote branches and tags)
+
+function _fzf() {
+  fzf --cycle --height=80% "$@"
+}
+
+## Test if is into a git repository.
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+  echo "fatal: Not a git repo!"
+  exit 1
+fi
+
+## Get all tags.
+tags=$(git --no-pager tag \
+  | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') \
+  || exit 1
+
+## Get all branch names highlighted.
+# branches=$(git branch --all --color \
+#   | grep -v HEAD \
+#   | sed 's#.* ##' \
+#   | sed 's#remotes/##' \
+#   | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') \
+#   || exit 1
+
+## Get all branches except the current one.
+branches=$(git --no-pager branch --all \
+  --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
+  | sed '/^$/d') \
+  || exit 1
+
+if [[ "$branches" == '' && "$tags" == '' ]]; then 
+  echo "git-fzf-checkout: neither branches or tags" 
+  exit 1
+fi
+
+## Drop all branch and tag names into a FZF list to choose.
+# git log format:
+# %h - abreviatted commit hash
+# %s - subject
+# %an - author name
+target=$((echo -n "$branches"; echo -n "$tags") \
+  | _fzf +s +m +e --no-hscroll --ansi -d '\t' -n 2 --preview-window 'right:70%' \
+  --preview 'git log --graph --color --pretty=tformat:"%C(yellow)%h %Creset%s - %Cgreen%an%Creset" --date=human {2} -- | head -200') \
+  || exit 1
+
+git checkout "$@" $(echo "$target" | awk '{print $2}')

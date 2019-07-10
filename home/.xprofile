@@ -1,0 +1,7 @@
+#!/bin/sh
+export EDITOR=nvim
+export TERMINAL=xfce4-terminal
+export GPG_USER_NAME='Sinésio Neto'
+export GPG_USER_EMAIL=sn.logbackup@gmail.com
+
+nitrogen --restore &

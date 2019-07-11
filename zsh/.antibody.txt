@@ -9,7 +9,8 @@ zsh-users/zsh-history-substring-search
 
 # prompt theme
 mafredri/zsh-async
-sindresorhus/pure
+#sindresorhus/pure
+sinetoami/puri
 
 # misc
 sinetoami/vi-mode

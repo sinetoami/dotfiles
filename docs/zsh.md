@@ -37,12 +37,12 @@ Shortcuts, Commands and Plugins
 ### antibody plugins
 |plugin|description|
 |---|---|
-|[`sindresorhus/pure`][]|fast zsh prompt - needs to [`mafredri/zsh-async`][]|
-|[`zsh-users/zsh-completions`][]|additional completion definitions for zsh|
-|[`zsh-users/zsh-autosuggestions`][]|fish-like autosuggestions for zsh|
-|[`zsh-users/zsh-history-substring-search`][]|history search feature for zsh|
-|[`sinetoami/vi-mode`][]|enable vim-like mode for zsh|
-|[`supercrabtree/k`][]|new `l` command with color and some git status|
+|[sindresorhus/pure][]|fast zsh prompt - needs to [mafredri/zsh-async][]|
+|[zsh-users/zsh-completions][]|additional completion definitions for zsh|
+|[zsh-users/zsh-autosuggestions][]|fish-like autosuggestions for zsh|
+|[zsh-users/zsh-history-substring-search][]|history search feature for zsh|
+|[sinetoami/vi-mode][]|enable vim-like mode for zsh|
+|[supercrabtree/k][]|new `l` command with color and some git status|
 
 ### zsh commands
 |command|description|
@@ -60,14 +60,13 @@ Shortcuts, Commands and Plugins
 |`ghi`|shows all issues from a GitHub repository|
 |`hub`|command to create and delete a repository, send a PR to a GitHub repository|
 |---|---|
-|`esc`|switch `normal` and `insert` vim like mode|
-|`esc + v`|in `normal` start editor mode|
+|`ESC`|switch `normal` and `insert` vim like mode|
+|`ESC + v`|in `normal` start editor mode|
 |---|---|
-|`alt-c`|run `fzf` to `cd` into a selected directory|
-|`ctrl-t`|run `fzf` current directory list files|
-|`ctrl-r`|run `fzf` command history|
+|`Ctrl + t`|run `fzf` current directory list files|
+|`Ctrl + r`|run `fzf` command history|
+|`Alt + c`|run `fzf` to `cd` into a selected directory|
 
----
 [dotfiles]: https://github.com/sinetoami/dotfiles
 [zsh]: http://zsh.org
 [antibody]: https://getantibody.github.io
@@ -76,10 +75,10 @@ Shortcuts, Commands and Plugins
 [`bat`]: https://github.com/sharkdp/bat
 [`hub`]: https://github.com/github/hub
 [`ghi`]: https://github.com/stephencelis/ghi 
-[`sindresorhus/pure`]: https://github.com/sindresorhus
-[`mafredri/zsh-async`]: https://github.com/mafredri/zsh-async
-[`zsh-users/zsh-completions`]: https://github.com/zsh-users/zsh-completions
-[`zsh-users/zsh-autosuggestions`]: https://github.com/zsh-users/zsh-autosuggestions
-[`zsh-users/zsh-history-substring-search`]: https://github.com/zsh-users/zsh-history-substring-search
-[`sinetoami/vi-mode`]: https://github.com/sinetoami/vi-mode
-[`supercrabtree/k`]: https://github.com/supercrabtree/k
+[sindresorhus/pure]: https://github.com/sindresorhus
+[mafredri/zsh-async]: https://github.com/mafredri/zsh-async
+[zsh-users/zsh-completions]: https://github.com/zsh-users/zsh-completions
+[zsh-users/zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
+[zsh-users/zsh-history-substring-search]: https://github.com/zsh-users/zsh-history-substring-search
+[sinetoami/vi-mode]: https://github.com/sinetoami/vi-mode
+[supercrabtree/k]: https://github.com/supercrabtree/k

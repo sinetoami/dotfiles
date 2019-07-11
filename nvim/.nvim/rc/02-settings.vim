@@ -90,8 +90,8 @@ set showmatch " show barckets matching highlight
 
 "" text
 set formatoptions+=w " trailing white space indicates a paragraph
-set textwidth=85 " maximum width
-set colorcolumn=85
+set textwidth=79 " maximum width
+set colorcolumn=80
 set nowrap " turn word wrap off
 set backspace=indent,eol,start " allows backspacing over autoindent,eol,start
 
@@ -100,7 +100,7 @@ set smarttab " inserts blanks according to 'shiftwidth'
 set expandtab " convert tabs to spaces
 set tabstop=2 " set tabsize in spaces (for manual indenting)
 set shiftwidth=2 " the number of spaces for tab (auto indent)
-set list listchars=tab:··,trail:· " chars to be used to show a tab and trails
+set list listchars=tab:·· " chars to be used to show a tab and trails
 
 "" foldering
 set nofoldenable

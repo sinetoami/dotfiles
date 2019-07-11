@@ -1,5 +1,5 @@
 "" shortcuts
-"" si = smartindent; ts = tabstop; sts = softtabstop; sw = shiftwidth; sta = smarttab; et = expandtab
+"" si = smartindent; ts = tabstop; sts = softtabstop; sw = shiftwidth; sta = smarttab; et = expandtab tw = textwidth
 
 "" RUBY
 autocmd FileType ruby,eruby,rdoc set si ts=2 sts=2 sw=2 sta et
@@ -7,7 +7,7 @@ autocmd BufNewFile,BufRead Gemfile setlocal filetype=Gemfile syntax=ruby
 autocmd BufNewFile,BufRead *_spec.rb setlocal filetype=rspec syntax=ruby 
 
 "" SHELL
-autocmd FileType sh,bash,zsh set si ts=2 sts=2 sw=2 sta et
+autocmd FileType sh,bash,zsh set si ts=2 sts=2 sw=2 sta et tw=0
 
 "" VIML
 autocmd FileType vim set si ts=2 sts=2 sw=2 sta et

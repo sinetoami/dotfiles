@@ -1,6 +1,7 @@
 "" Use the system clipboard:
 "" very usefull if you use Tmux and desire yank and copy text
 "" between panes and windows.
+"" see :help provider-clipboard
 if has('unnamedplus')
   set clipboard+=unnamed,unnamedplus
 endif

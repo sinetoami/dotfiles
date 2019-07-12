@@ -14,8 +14,6 @@ done
 ## Antibody
 source $HOME/.antibody.sh
 
-export PURI_PROMPT_LANGS=( ruby )
-
 ## fzf
 export FZF_TMUX=1
 export FZF_TMUX_HEIGHT=40

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+_fzf() {
+  fzf +x +s --exact --cycle --ansi --reverse \
+    --header='[base : package name : version : installed flag]' "$@"
+}
+
+## test if have a internet connection
+ipcon=$(ip a | awk '/(enp1s0|wlp2s0)/' | awk '/state UP/' | wc -l)
+if [[ "$ipcon" == 0 ]]; then 
+  echo 'yay-fzf: Temporary failure in name resolution'
+  exit 1
+fi
+
+## listing packages
+package=$(yay -Sl \
+  | awk '{print "\x1b[35;1m" $1 "\x1b[37;1m " $2 "\x1b[32;1m " $3 "\x1b[36;1m " $4}' \
+  | _fzf --multi --preview 'yay -Si {2}') || exit 1
+
+## do something with these selected packages
+yay "$@" $(echo "$package" | awk '{print $2}')

@@ -131,6 +131,33 @@ let g:gitgutter_sign_removed = '◢' "'✖'
 let g:gitgutter_sign_modified_removed = '◥' "'✖'
 let g:gitgutter_sign_removed_first_line = '◢' "'✖'
 
+"" vim-fugitive
+"" ***********************************************************
+function! s:checkout_new_branch()
+  try
+    call inputsave()
+    let branch_name = input('Branch name: ')
+    call inputrestore()
+    execute 'Gcheckout -b ' . branch_name
+  catch
+  endtry
+endfunction
+
+" NOTE ABOUT Gbranch: shortcuts
+" co - get checkout on branch under the cursor
+" d  - delete a branch under the cursor
+" D  - force delete a branch under the cursor
+nnoremap <silent> <leader>gaa :Gwrite<cr>
+nnoremap <silent> <leader>gcs :Gcommit -S<cr>
+nnoremap <silent> <leader>gca :Gcommit -S --amend<cr>
+nnoremap <silent> <leader>gst :Gstatus<cr>
+nnoremap <silent> <leader>gdf :Gvdiff<cr>
+nnoremap <silent> <leader>gbl :Gblame<cr>
+nnoremap <silent> <leader>gbr :Gbranch --list -v<cr>
+nnoremap <silent> <leader>gbu :Gbranch --remote -v<cr>
+nnoremap <silent> <leader>gcm :Gcheckout master<cr>
+nnoremap          <leader>gnb :call <sid>checkout_new_branch()<cr>
+
 "" vim-commentary
 "" ***********************************************************
 map <silent> <A-\> :Commentary<cr>

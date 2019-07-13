@@ -100,7 +100,7 @@ set smarttab " inserts blanks according to 'shiftwidth'
 set expandtab " convert tabs to spaces
 set tabstop=2 " set tabsize in spaces (for manual indenting)
 set shiftwidth=2 " the number of spaces for tab (auto indent)
-set list listchars=tab:·· " chars to be used to show a tab and trails
+set list listchars=tab:\ \ , " chars to be used to show a tab and trails
 
 "" foldering
 set nofoldenable

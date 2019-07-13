@@ -13,6 +13,7 @@ endif
 "" setting runtime path
 set runtimepath+=~/.config/nvim/autoload
 runtime autoload/**/*.vim
+runtime macros/matchit.vim
 
 "" syntax highlighting
 syntax on

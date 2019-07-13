@@ -148,8 +148,8 @@ endfunction
 " d  - delete a branch under the cursor
 " D  - force delete a branch under the cursor
 nnoremap <silent> <leader>gaa :Gwrite<cr>
-nnoremap <silent> <leader>gcs :Gcommit -S<cr>
-nnoremap <silent> <leader>gca :Gcommit -S --amend<cr>
+nnoremap <silent> <leader>gcs :Gcommit -S -v<cr>
+nnoremap <silent> <leader>gca :Gcommit -S -v --amend<cr>
 nnoremap <silent> <leader>gst :Gstatus<cr>
 nnoremap <silent> <leader>gdf :Gvdiff<cr>
 nnoremap <silent> <leader>gbl :Gblame<cr>

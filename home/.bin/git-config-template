@@ -4,11 +4,11 @@
 function _gitconfig_template() {
 cat << EOF
 [user]
-    name = $GPG_USER_NAME
-    email = $GPG_USER_EMAIL
-    signingkey = $GPG_PUBKEY_HASH
+	name = $GPG_USER_NAME
+	email = $GPG_USER_EMAIL
+	signingkey = $GPG_PUBKEY_HASH
 [core]
-    editor = $EDITOR
+	editor = $EDITOR
 EOF
 }
 

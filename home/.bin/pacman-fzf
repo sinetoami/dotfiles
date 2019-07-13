@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 _fzf() {
-  fzf +x +s --exact --cycle --ansi --reverse \
-    --header='[base : package name : version : installed flag]' "$@"
+	fzf +x +s --exact --cycle --ansi --reverse \
+	--header='[base : package name : version : installed flag]' "$@"
 }
 
 ## if the options have something like '-S[yuw]' will exit
 ipcon=$(ip a | awk '/(enp1s0|wlp2s0)/' | awk '/state UP/' | wc -l)
 opts=$(echo "$@" | awk '/-(S[yuw])/' | wc -l)
 if [[ "$ipcon" == 0 && ("$opts" != 0 || "$@" == '-S') ]]; then
-  echo "pacman-fzf: have no internet connections to install anything"
-  exit 1
+	echo "pacman-fzf: have no internet connections to install anything"
+	exit 1
 fi
 
 ## listing packages
 package=$(pacman -Sl \
-  | awk '{print "\x1b[35;1m" $1 "\x1b[37;1m " $2 "\x1b[32;1m " $3 "\x1b[36;1m " $4}' \
-  | _fzf --multi --preview 'pacman -Si {2}') || exit 1
+	| awk '{print "\x1b[35;1m" $1 "\x1b[37;1m " $2 "\x1b[32;1m " $3 "\x1b[36;1m " $4}' \
+	| _fzf --multi --preview 'pacman -Si {2}') || exit 1
 
 ## do something with these selected packages
 pacman "$@" $(echo "$package" | awk '{print $2}')

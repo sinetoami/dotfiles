@@ -117,6 +117,13 @@ nnoremap <silent> <leader>f! :Find!<cr>
 "" ***********************************************************
 nnoremap <silent> <C-A-p> :Fzy<cr>
 
+"" winresize.vim
+"" ******************************************************
+nnoremap <silent> <S-A-Left>  :WinResizeLeft<cr>
+nnoremap <silent> <S-A-Right> :WinResizeRight<cr>
+nnoremap <silent> <S-A-Up>    :WinResizeTop<cr>
+nnoremap <silent> <S-A-Down>  :WinResizeBottom<cr>
+
 "" vim-gitgutter
 "" ***********************************************************
 set updatetime=100

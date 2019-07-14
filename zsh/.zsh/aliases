@@ -1,24 +1,76 @@
 #!/usr/bin/env sh
 
 ## antibody
-alias ain="curl -sL git.io/antibody | sh -s" # install antibody simple way - [A]ntibody [IN]stall
-alias abp="antibody bundle < ~/.antibody.txt > ~/.antibody.sh" # [A]ntibody [B]undle [P]lugins
-alias aup="antibody update" # [A]ntibody [UP]date
+alias ain='curl -sL git.io/antibody | sh -s' # install antibody simple way - [a]ntibody [in]stall
+alias abp='antibody bundle < ~/.antibody.txt > ~/.antibody.sh' # [a]ntibody [b]undle [p]lugins
+alias aup='antibody update' # [a]ntibody [up]date
 
 ## git
-alias ggc="git-config-template" # [G]it [G]enerate [C]onfig
-alias gco="git-fzy-checkout"
-alias gcofzf="git-fzf-checkout" # [G]it [C]heck[O]ut
-alias gbd="git-fzf-branch -m -D" # [G]it [B]ranch [D]elete
-alias gtg="git-fzf-tag +m" # [G]it [T]ags
-alias gtd="git-fzf-tag -m -d" # [G]it [T]ag [D]elete
+alias g='git'
+alias ggc='git-config-template' # [g]it [g]enerate [c]onfig
+
+# git add
+alias ga='git add' # [a]it [a]dd
+alias gaa='git add --all' # [g]it [a]dd [a]ll
+alias gav='git add --verbose' # [g]it [a]dd [v]erbose
+
+# git branch
+alias gb='git branch'
+alias gbli='git-fzy-branch branch --list' # [g]it [b]ranch [li]st
+alias gba='git-fzy-branch branch --all' # [g]it [b]ranch [a]ll
+alias gbr='git-fzy-branch branch --remote' # [g]it [b]ranch [r]emote
+alias gbd='git-fzy-branch branch --all -d' # [g]it [b]ranch [d]elete
+alias gbD='git-fzy-branch branch --all -D' # [g]it [b]ranch [d]elete
+alias gbdm='git-fzf-branch branch --all -d' # [g]it [b]ranch [d]elete [m]ulti
+alias gbDm='git-fzf-branch branch --all -D' # [g]it [b]ranch [d]elete [m]ulti
+alias gbap='git-fzf-branch branch --all' # [g]it [b]ranch [d]elete [m]ulti
+
+# git checkout
+alias gcb='git checkout -b' # [g]it [c]heckout -[b]
+alias gcm='git checkout master' # [g]it [c]heckout [m]aster
+alias gco='git-fzy-branch checkout --all' # [g]it [c]heck[o]ut
+alias gcop='git-fzf-branch checkout --all' # [g]it [c]heck[o]ut with [p]review 
+
+# git tag
+alias gt='git tag' # [g]it [t]ag
+alias gts='git tag --sign' # [g]it [t]ag [s]igned
+alias gtl='git-fzy-branch tag --list' # [g]it [t]ag [l]ist
+alias gtd='git-fzy-branch tag --all -d' # [g]it [t]ag [l]ist
+alias gtlp='git-fzf-branch tag --list' # [g]it [t]ag [l]ist with [p]review
+alias gtdm='git-fzf-branch tag --all -d' # [g]it [t]ag [d]elete [m]ulti
+
+# git blame
+alias gbl='git blame' # [g]it [bl]ame
+alias gblbw='git blame -b -w' # [g]it [bl]ame -[b] -[w]
+
+# git commit
+alias gc='git commit -v' # [g]it [c]ommit
+alias gcs='git commit -S -v' # [g]it [c]ommit -[S]
+alias gca='git commit -v -a' # [g]it [c]ommit -[a]
+alias gcsa='git commit -S -v -a' # [g]it [c]ommit -[S] -[a]
+alias gcam='git commit -a -m' # [g]it [c]ommit -[a] -[m]
+alias gcsm='git commit -S -m' # [g]it [c]ommit -[S] -[m]
+
+alias gc!='git commit -v --amend' # [g]it [c]ommit ammed[!]
+alias gcs!='git commit -S -v --amend' # [g]it [c]ommit -[S] ammend[!]
+alias gca!='git commit -v -a --amend' # [g]it [c]ommit -[a] ammend[!]
+alias gcsa!='git commit -S -v -a --amend' # [g]it [c]ommit -[S] -[a] ammend[!]
+
+alias gcn!='git commit -v --no-edit --amend' # [g]it [c]ommit [n]o-edit ammend[!]
+alias gcan!='git commit -v -a --no-edit --amend' # [g]it [c]ommit -[a] [n]o-edit ammend[!]
+alias gcsan!='git commit -S -v -a --no-edit --amend' # [g]it [c]ommit -[S] -[a] [n]o-edit ammend[!]
+
+alias gcmsg='git commit -m' # [g]it [c]ommit -[m]
+alias gclean='git clean -id'
+alias gpristine='git reset --hard && git clean -dfx'
+alias gcount='git shortlog -sn' 
 
 ## pacman/yay
-alias pacss="sudo pacman-fzf" # pacman -Ss
-alias pacin="sudo pacman-fzf -S" # pacman -S
-alias yayss="yay-fzf" # yay -Ss
-alias yayin="yay-fzf -S" # yay -S
+alias pacss='sudo pacman-fzf' # pacman -Ss
+alias pacin='sudo pacman-fzf -S' # pacman -S
+alias yayss='yay-fzf' # yay -Ss
+alias yayin='yay-fzf -S' # yay -S
 
 ## manipulate files
-alias cat="bat"
-alias nvgit="nvim-git-fzf"
+alias cat='bat'
+alias nvgit='nvim-git-fzf'

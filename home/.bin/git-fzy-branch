@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+RED="\033[1;31m"
+OFF="\033[m"
+
+function fail-msg() {
+	if [[ "$1" == '' ]]; then
+		echo -e "$RED$2 $OFF"
+		exit 1
+	fi
+}
+
+## Test if is into a git repository.
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+	echo "fatal: Not a git repo!"
+	exit 1
+fi
+
+cmd=$1
+shift
+
+bopts=$1
+shift
+
+tags=$(git --no-pager tag)
+
+branches=$(git branch "$bopts" \
+	--format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%(refname:short)%(end)%(end)")
+
+case "$cmd" in
+	tag)
+		fail-msg "$tags" "git-fzy-branch: no tags here!"
+		t=$tags
+		;;
+	branch)
+		fail-msg "$branches" "git-fzy-branch: no branches here!"
+		t=$branches
+		;;
+	checkout)
+		fail-msg "$branches$tags" "git-fzy-branch: no branches or tags beyond the 'master'."
+		[[ "$branches" == '' ]] && t=$tags || t=$(echo -ne "$branches\n$tags")
+		;;
+esac
+
+target=$((echo -ne "$t") | fzy) ||  exit 1
+
+[[ "$target" != '' && "$cmd" == 'branch' && "$@" == '' ]] && exit 1 
+[[ "$target" != '' && "$cmd" == 'tag' && "$@" == '' ]] && exit 1
+
+[[ "$target" != '' ]] && git "$cmd" "$@" $(echo "$target") || exit 1

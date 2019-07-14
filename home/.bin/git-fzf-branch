@@ -29,8 +29,16 @@ fi
 # %h - abreviatted commit hash
 # %s - subject
 # %an - author name
-git --no-pager branch --all \
+branches=$(git --no-pager branch --all \
   --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%(refname:short)%(end)%(end)" \
-  | sed '/^$/d' \
-  | _fzf +s "$1" +e --ansi --preview-window 'right:70%' \
-  --preview 'git log --graph --color --pretty=tformat:"%C(yellow)%h %Creset%s - %Cgreen%an%Creset" --date=human {1} -- | head -200'
+  | sed '/^$/d') \
+  || exit 1
+  
+targets=$((echo -n "$branches") | _fzf +s "$1" +e --ansi --preview-window 'right:70%' \
+  --preview 'git log --graph --color --pretty=tformat:"%C(yellow)%h %Creset%s - %Cgreen%an%Creset" --date=human {1} -- | head -200') \
+  || exit 1
+
+shift
+
+[[ "$targets" != '' && "$@" != '' ]] && git branch "$@" $(echo "$targets" | awk '{print $1}') \
+	|| exit 1

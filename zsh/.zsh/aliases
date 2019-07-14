@@ -7,15 +7,18 @@ alias aup="antibody update" # [A]ntibody [UP]date
 
 ## git
 alias ggc="git-config-template" # [G]it [G]enerate [C]onfig
-alias gco="git-fzf-checkout" # [G]it [C]heck[O]ut
-alias gbr="git-fzf-branch +m" # [G]it [BR]anches
-alias gbd="git-fzf-branch -m | xargs git branch -D" # [G]it [B]ranch [D]elete
+alias gco="git-fzy-checkout"
+alias gcofzf="git-fzf-checkout" # [G]it [C]heck[O]ut
+alias gbd="git-fzf-branch -m -D" # [G]it [B]ranch [D]elete
 alias gtg="git-fzf-tag +m" # [G]it [T]ags
-alias gtd="git-fzf-tag -m | xargs git tag -d" # [G]it [T]ag [D]elete
+alias gtd="git-fzf-tag -m -d" # [G]it [T]ag [D]elete
 
 ## pacman/yay
-alias pacman="sudo pacman-fzf"
-alias yay="yay-fzf"
+alias pacss="sudo pacman-fzf" # pacman -Ss
+alias pacin="sudo pacman-fzf -S" # pacman -S
+alias yayss="yay-fzf" # yay -Ss
+alias yayin="yay-fzf -S" # yay -S
 
 ## manipulate files
 alias cat="bat"
+alias nvgit="nvim-git-fzf"

@@ -21,6 +21,12 @@ fi
 # %h - abreviatted commit hash
 # %s - subject
 # %an - author name
-git --no-pager tag \
+targets=$(git --no-pager tag \
 	| _fzf +s "$1" +e --no-hscroll --ansi -d '\t' -n 2 --preview-window 'right:70%' \
-	--preview 'git log --graph --color --pretty=tformat:"%C(yellow)%h %Creset%s - %Cgreen%an%Creset" --date=human {1} -- | head -200'
+	--preview 'git log --graph --color --pretty=tformat:"%C(yellow)%h %Creset%s - %Cgreen%an%Creset" --date=human {1} -- | head -200') \
+	|| exit 1
+
+shift
+
+[[ "$targets" != '' && "$@" != '' ]] && git tag "$@" $(echo "$targets" | awk '{print $1}') \
+	|| exit 1

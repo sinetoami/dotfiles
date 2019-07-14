@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+branch=$(git branch --all \
+	--format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%(refname:short)%(end)%(end)" \
+	| fzy)
+[[ "$branch" != '' ]] && git checkout "$(echo $branch)" || exit 1

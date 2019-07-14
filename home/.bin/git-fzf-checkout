@@ -40,9 +40,10 @@ fi
 # %h - abreviatted commit hash
 # %s - subject
 # %an - author name
-target=$((echo -n "$branches"; echo -n "$tags") \
+target=$((echo "$branches"; echo -n "$tags") \
 	| _fzf +s +m +e --no-hscroll --ansi -d '\t' -n 2 --preview-window 'right:70%' \
 	--preview 'git log --graph --color --pretty=tformat:"%C(yellow)%h %Creset%s - %Cgreen%an%Creset" --date=human {2} -- | head -200') \
 	|| exit 1
 
-git checkout "$@" $(echo "$target" | awk '{print $2}')
+[[ "$target" != '' ]] && git checkout "$@" $(echo "$target" | awk '{print $2}') \
+	|| exit 1

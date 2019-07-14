@@ -14,7 +14,9 @@ fi
 ## listing packages
 package=$(yay -Sl \
 	| awk '{print "\x1b[35;1m" $1 "\x1b[37;1m " $2 "\x1b[32;1m " $3 "\x1b[36;1m " $4}' \
-	| _fzf --multi --preview 'yay -Si {2}') || exit 1
+	| _fzf --multi --preview-window="right:55%:wrap" --preview="yay -Si {2}" ) \
+	|| exit 1
 
-## do something with these selected packages
-yay "$@" $(echo "$package" | awk '{print $2}')
+## do something with these selected packages or just print the package names
+[[ "$@" != '' ]] && yay "$@" $(echo "$package" | awk '{print $2}') \
+	|| echo "$package" | awk '{print $2}'; exit 1

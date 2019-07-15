@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+## override vi-mode plugin keybindings
+bindkey '^N' up-line-or-beginning-search
+bindkey '^P' down-line-or-beginning-search

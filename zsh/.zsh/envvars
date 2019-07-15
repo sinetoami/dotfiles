@@ -4,4 +4,18 @@ function __pub_key_hash {
 	gpg --keyid-format long --list-keys $GPG_USER_EMAIL | awk -F' ' '/^pub/ {print $2}' | awk -F'/' '{print $2}'
 }
 
+## GPG HASHKEY
 export GPG_PUBKEY_HASH=$(__pub_key_hash)
+
+## GOLANG
+export GOPATH=$HOME/Workspace/go
+export PATH=$PATH:$GOPATH/bin
+
+## FZF
+export FZF_TMUX=0
+export FZF_TMUX_HEIGHT=40
+export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!*.git"'
+export FZF_DEFAULT_OPTS='--height=70% --layout=reverse'
+export FZF_CTRL_T_OPTS="--height=80% --preview '(bat --style=numbers,changes --color always {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_ALT_C_OPTS="--height=99% --preview 'tree -C {} | head -200'"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

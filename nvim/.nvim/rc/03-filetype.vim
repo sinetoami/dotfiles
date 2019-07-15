@@ -19,5 +19,7 @@ autocmd FileType vim set si ts=2 sts=2 sw=2 sta et
 autocmd FileType yaml,markdown set si ts=2 sts=2 sw=2 sta et
 autocmd FileType conf set si ts=2 sts=2 sw=2 sta et
 autocmd FileType xdefaults setlocal commentstring=!%s
+autocmd FileType antibody setlocal commentstring=#%s
 autocmd BufNewFile,BufRead *.mkd setlocal filetype=markdown
 autocmd BufNewFile,BufRead i3status*.conf setlocal filetype=conf
+autocmd BufNewfile,BufRead .antibody.txt setlocal filetype=antibody syntax=conf

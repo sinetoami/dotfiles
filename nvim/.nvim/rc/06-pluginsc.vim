@@ -49,9 +49,9 @@ let g:lightline = {
 
 "" lightline-bufferline
 "" ***********************************************************
-let g:lightline#bufferline#show_number  = 2
-let g:lightline#bufferline#shorten_path = 0
-let g:lightline#bufferline#unnamed      = '[No Name]'
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline#bufferline#show_number       = 2
+let g:lightline#bufferline#unnamed           = '[No Name]'
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
@@ -108,10 +108,15 @@ if executable('rg')
             \: fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0) 
 endif
 
-nnoremap <silent> <C-p>      :Files<cr>
-nnoremap <silent> <C-b>      :Buffers<cr>
-nnoremap <silent> <leader>fd :Find<cr> 
-nnoremap <silent> <leader>f! :Find!<cr> 
+nnoremap <silent> <C-p> :Files<cr>
+nnoremap <silent> <C-b> :Buffers<cr>
+nnoremap <silent> fgf   :GFiles<cr>
+nnoremap <silent> fgs   :GFiles?<cr>
+nnoremap <silent> fgc   :Commits<cr>
+nnoremap <silent> ffd   :Find<cr> 
+nnoremap <silent> fd!   :Find!<cr> 
+nnoremap <silent> fbl   :BLines<cr>
+nnoremap <silent> fhelp :Helptags<cr>
 
 "" fzy (fzy.vim)
 "" ***********************************************************

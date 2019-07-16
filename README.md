@@ -1,16 +1,16 @@
 # Dotfiles
 Personal `dotfiles` and some system configurations:
-- Platform: [Arch Linux][].
-- Setup: [zsh][], [tmux][], [neovim][], [i3wm][], [git][].
-- Search tools: [rg][], [ag][] [fzf][], [fzy][].
+- Platform: [Arch Linux][], [i3wm][] (i3-gaps fork).
+- Terminal Setup: [zsh][], [tmux][], [neovim][], [git][].
+- Search Tools: [rg][], [ag][] [fzf][], [fzy][].
 - Programming Languages: [ruby][], [go][], [javascript][], [typescript][], 
     [html][], [css][].
 
 [Arch Linux]: https://archlinux.org
+[i3wm]: https://i3wm.org
 [zsh]: http://zsh.org
 [tmux]: https://github.com/tmux/tmux
 [neovim]: https://neovim.io
-[i3wm]: https://i3wm.org
 [git]: https://git-scm.com
 [rg]: https://github.com/BurntSushi/ripgrep
 [ag]: http://geoff.greer.fm/ag

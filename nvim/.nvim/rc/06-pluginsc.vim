@@ -108,6 +108,15 @@ if executable('rg')
             \: fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0) 
 endif
 
+function! s:changebranch(branch)
+  execute 'Git checkout ' . a:branch
+  call feedkeys('i')
+endfunction
+command! -bang Gbranch call fzf#run({
+      \ 'source': 'git branch -a --no-color | grep  -v "^\* " ',
+      \ 'sink': function('s:changebranch')
+      \ })
+
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <silent> <C-b> :Buffers<cr>
 nnoremap <silent> fgf   :GFiles<cr>
@@ -145,34 +154,36 @@ let g:gitgutter_sign_removed_first_line = '◢' "'✖'
 
 "" vim-fugitive
 "" ***********************************************************
-function! s:checkout_new_branch()
-  try
-    call inputsave()
-    let branch_name = input('Branch name: ')
-    call inputrestore()
-    execute 'Gcheckout -b ' . branch_name
-  catch
-  endtry
-endfunction
-
-" NOTE ABOUT Gbranch: shortcuts
-" co - get checkout on branch under the cursor
-" d  - delete a branch under the cursor
-" D  - force delete a branch under the cursor
 nnoremap <silent> <leader>gaa :Gwrite<cr>
 nnoremap <silent> <leader>gcs :Gcommit -S -v<cr>
 nnoremap <silent> <leader>gca :Gcommit -S -v --amend<cr>
 nnoremap <silent> <leader>gst :Gstatus<cr>
 nnoremap <silent> <leader>gdf :Gvdiff<cr>
 nnoremap <silent> <leader>gbl :Gblame<cr>
-nnoremap <silent> <leader>gbr :Gbranch --list -v<cr>
-nnoremap <silent> <leader>gbu :Gbranch --remote -v<cr>
-nnoremap <silent> <leader>gcm :Gcheckout master<cr>
+
+"" vim-fugitive
+"" ***********************************************************
+function! s:checkout_new_branch()
+  try
+    call inputsave()
+    let branch_name = input('Branch name: ')
+    call inputrestore()
+    execute 'Twiggy ' . branch_name
+  catch
+  endtry
+endfunction
+
+nnoremap <silent> <leader>gbr :Twiggy<cr>
+nnoremap <silent> <leader>gcm :Twiggy master<cr>
 nnoremap          <leader>gnb :call <sid>checkout_new_branch()<cr>
 
 "" vim-commentary
 "" ***********************************************************
 map <silent> <A-\> :Commentary<cr>
+
+"" auto-pairs
+"" ***********************************************************
+let g:AutoPairsMultilineClose = 0
 
 "" vim-ruby
 "" ***********************************************************
@@ -184,6 +195,7 @@ let g:ruby_operators = 1
 
 "" vim-go
 "" ***********************************************************
+let g:go_bin_path = $HOME . '/Workspace/go/bin'
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1

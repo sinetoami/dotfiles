@@ -30,6 +30,8 @@ if dein#load_state('~/.cache/dein')
 	" GIT
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('airblade/vim-gitgutter')
+  call dein#add('junegunn/gv.vim')
+  call dein#add('sodapopcan/vim-twiggy')
 	
 	" INTERFACE 
 	call dein#add('wsdjeg/dein-ui.vim')
@@ -37,23 +39,43 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('mengelbrecht/lightline-bufferline')
 	call dein#add('sinetoami/lightline-hunks')
 
-	" NAVIGATION
-	call dein#add('christoomey/vim-tmux-navigator')
+	" FILES NAVIGATION
 	call dein#add('junegunn/fzf', { 'path': '~/.fzf', 'build': '~/.fzf/install --all' })
 	call dein#add('junegunn/fzf.vim')
 	call dein#add('tpope/vim-eunuch')
 
+  " WINDOWS NAVIGATION
+	call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('wesQ3/vim-windowswap')
+
 	" WRITING CODE
+  call dein#add('jiangmiao/auto-pairs')
+  call dein#add('tmhedberg/matchit')
 	call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-surround')
+  call dein#add('matze/vim-move')
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('kana/vim-textobj-line')
+  call dein#add('thinca/vim-textobj-between')
+  call dein#add('AndrewRadev/splitjoin.vim')
 
-	" SYNTAX
+  " GOLANG
+  call dein#add('fatih/vim-go') 
+  call dein#add('sebdah/vim-delve')
+  
+  "RUBY
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('tpope/vim-rake')
+  call dein#add('nelstrom/vim-textobj-rubyblock')
+  
+  " SYNTAX
 	call dein#add('sheerun/vim-polyglot')
-	call dein#add('vim-ruby/vim-ruby')
-	"call dein#add('fatih/vim-go')
-	
-	" OTHER STUFFS
+  
+  " OTHER STUFFS
+  call dein#add('KabbAmine/zeavim.vim')
+  call dein#add('godlygeek/tabular')
 
-	"" END   - Add or remove your plugins
+  "" END   - Add or remove your plugins
 	"" ************************************************************
 	"" Required:
 	call dein#end()

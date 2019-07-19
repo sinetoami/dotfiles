@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# $./i3volume up
+# $./i3volume down
+# $./i3volume mute
+
+function amixer_get {
+	amixer get Master | grep -Po '[0-9]+(?=%)'
+}
+
+function amixer_set {
+	if [[ $@ == 'toggle' ]]; then
+		amixer -c 0 sset Headphone $@
+	fi
+	amixer -c 0 sset Master $@
+	# amixer -c 0 sset Headphone $@
+}
+
+function is_mute {
+	amixer get Master | grep -Fq '[off]'
+}
+
+# function volnoti_show {
+# 	icon_path=~/.config/volnoti/icons
+# 	volume=`amixer_get`
+# 	icon=""
+
+# 	case $1 in
+# 	up|down)
+# 	  icon=$icon_path/if_audio-volume-high.png
+# 	;;
+# 	mute)
+# 	  icon=$icon_path/if_audio-output-none.png
+# 	  if is_mute; then volume='-m'; fi
+# 	;;
+# 	esac
+# 	volnoti-show -s $icon $volume
+# }
+
+
+case $1 in
+	up)
+		amixer_set 2%+ unmute
+		# volnoti_show $1
+		;;
+	down)
+		amixer_set 2%- unmute
+		# volnoti_show $1
+		;;
+	mute)
+		amixer_set toggle
+		# volnoti_show $1
+		;;
+esac

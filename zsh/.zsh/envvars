@@ -7,6 +7,10 @@ function __pub_key_hash {
 ## GPG HASHKEY
 export GPG_PUBKEY_HASH=$(__pub_key_hash)
 
+## ASDF
+export ASDF_DIR=$HOME/.asdf
+source $ASDF_DIR/asdf.sh && source $ASDF_DIR/completions/asdf.bash
+
 ## GOLANG
 export GOPATH=$HOME/Workspace/go
 export PATH=$PATH:$GOPATH/bin

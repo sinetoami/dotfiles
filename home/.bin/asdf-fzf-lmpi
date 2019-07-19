@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Install a plugin of specified language
+# lang manager plugin install
+lang="$1"
+
+if [[ "$lang" == '' ]]; then
+	lang=$(asdf plugin-list-all | fzf | awk '{print $1,$2}')
+	asdf plugin-add "$lang"
+	exit 1
+fi
+
+if [[ "$lang" != '' ]]; then
+	plugin_url=$(asdf plugin-list-all | fzf --query="'$lang" -m | awk '{print $1,$2}' )
+	asdf plugin-add "$plugin_url"
+fi

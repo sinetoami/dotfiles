@@ -19,3 +19,19 @@ alias -g fzyp=' | fzy '
 alias cat='bat'
 alias nvgit='nvim-git-fzf'
 alias sozshrc="source $HOME/.zshrc"
+
+## asdf
+alias lmin="asdf-fzf-lmi"
+alias lmun="asdf-fzf-lmc"
+alias lmls="asdf list"
+alias lmgl="asdf global"
+alias lmlo="asdf local"
+alias lmcu="asdf current"
+alias lmpls="asdf plugin-list"
+alias lmpla="asdf plugin-list-all"
+alias lmpin="asdf-fzf-lmpi"
+alias lmpun="asdf-fzf-lmpc"
+alias lmpup="asdf plugin-update"
+alias lmpup!="asdf plugin-update --all"
+alias reshim="asdf reshim"
+alias asdfup="asdf update"

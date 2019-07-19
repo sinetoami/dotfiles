@@ -1,6 +1,5 @@
-# oh-my-zsh plugins
+## oh-my-zsh plugins
 robbyrussell/oh-my-zsh path:lib
-robbyrussell/oh-my-zsh path:plugins/z
 robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/vscode
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
@@ -8,14 +7,21 @@ robbyrussell/oh-my-zsh path:plugins/common-aliases
 robbyrussell/oh-my-zsh path:plugins/archlinux
 robbyrussell/oh-my-zsh path:plugins/golang
 
-# completions
+## completions
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
+rupa/z
+changyuheng/fz
 
-# prompt theme
+## prompt theme
+zdharma/fast-syntax-highlighting
+romkatv/powerlevel10k
+
+## pure prompt
 mafredri/zsh-async
-sindresorhus/pure
+# sindresorhus/pure
+##
 
-# misc
+## misc
 sinetoami/vi-mode
 supercrabtree/k

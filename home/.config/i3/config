@@ -30,6 +30,9 @@ focus_follows_mouse no
 
 
 ## ----------- AUTOSTART ---------- ##
+# launch polybar's bars
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 # setting monitor layouts on system login/resume/hotplug
 exec --no-startup-id display-visor -i -l
 
@@ -80,6 +83,14 @@ bindsym $win+d exec rofi -show
 
 # needs nmcli-rofi script
 # bindsym $win+n exec nmcli-rofi
+
+
+## ------------ MEDIA VOLUME ------------ ##
+bindsym XF86AudioRaiseVolume exec --no-startup-id i3volume up
+bindsym XF86AudioLowerVolume exec --no-startup-id i3volume down
+bindsym XF86AudioMute exec --no-startup-id i3volume mute
+bindsym $win+F12 exec --no-startup-id i3volume up
+bindsym $win+F11 exec --no-startup-id i3volume down
 
 
 ## ------------ RESTART/RELOAD/LOCKSCREEN/EXIST ------------ ##
@@ -250,6 +261,15 @@ bindsym $win+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
+# colour of                     border  backgr. text    indica. child_border
+client.focused                  #a9dc76 #a9dc76 #222222 #222222 #a9dc76
+client.focused_inactive         #222222 #222222 #AAAAAA #222222 #222222
+client.unfocused                #222222 #222222 #AAAAAA #222222 #222222
+client.urgent                   #BD2C40 #BD2C40 #AAAAAA #BD2C40 #BD2C40
+client.placeholder      	      #000000 #0c0c0c #ffffff #000000 #0c0c0c
+
+client.background 		#282C34
+
 # LVDS monitor
 bar {
   position top
@@ -292,12 +312,3 @@ bar {
 		binding_mode       #BD2C40 #BD2C40 #FFFFFF
 	}
 } 
-
-# colour of                     border  backgr. text    indica. child_border
-client.focused                  #a9dc76 #a9dc76 #222222 #222222 #a9dc76
-client.focused_inactive         #222222 #222222 #AAAAAA #222222 #222222
-client.unfocused                #222222 #222222 #AAAAAA #222222 #222222
-client.urgent                   #BD2C40 #BD2C40 #AAAAAA #BD2C40 #BD2C40
-client.placeholder      	      #000000 #0c0c0c #ffffff #000000 #0c0c0c
-
-client.background 		#282C34

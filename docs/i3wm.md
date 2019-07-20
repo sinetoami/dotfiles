@@ -16,23 +16,25 @@ Getting Started
 
 Shortcuts, Commands and Plugins
 -------------------------------
-|`Win + Enter`|start a new terminal|
-|`Win + d`|start `rofi`|
-|`Win-Shift + r`|restart i3wm|
-|`Win-Shift + c`|reload i3wm config|
-|`Win-Shift + e`|ask to exist|
-|`Win-Ctrl + l`|start lockscreen|
-|`Win-Shift + q`|kill a current window|
-|`Alt + Tab`|move focus to the right hand window|
-|`Alt-Shigt + Tab`|move focus to the left hand windo|
-|`Alt-Ctrl + right`|go to next workspace|
-|`Alt-Ctrl + left`|go to previous workspace|
-|`Win-Shift-t`|set internal gaps around each window|
-|`Win-Shift-d`|unset internal gaps around each window|
-|`Win + s`|increase internal gaps around each window|
-|`Win-Shift + s`|decrease internal gaps around each window|
-|`Win + z`|increase external gaps around all windows|
-|`Win-Shift + z`|decrease external gaps around all windows|
+| command            | description                               |
+| ---                | ---                                       |
+| `Win + Enter`      | start a new terminal                      |
+| `Win + d`          | start `rofi`                              |
+| `Win-Shift + r`    | restart i3wm                              |
+| `Win-Shift + c`    | reload i3wm config                        |
+| `Win-Shift + e`    | ask to exist                              |
+| `Win-Ctrl + l`     | start lockscreen                          |
+| `Win-Shift + q`    | kill a current window                     |
+| `Alt + Tab`        | move focus to the right hand window       |
+| `Alt-Shigt + Tab`  | move focus to the left hand windo         |
+| `Alt-Ctrl + right` | go to next workspace                      |
+| `Alt-Ctrl + left`  | go to previous workspace                  |
+| `Win-Shift-t`      | set internal gaps around each window      |
+| `Win-Shift-d`      | unset internal gaps around each window    |
+| `Win + s`          | increase internal gaps around each window |
+| `Win-Shift + s`    | decrease internal gaps around each window |
+| `Win + z`          | increase external gaps around all windows |
+| `Win-Shift + z`    | decrease external gaps around all windows |
 
 ---
 [dotfiles]: https://github.com/sinetoami/dotfiles

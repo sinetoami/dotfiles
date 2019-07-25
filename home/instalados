@@ -149,3 +149,6 @@ the_silver_searcher
 code (vscode)
 firefox
 flashplugin
+jq
+yarn
+npm: tslib

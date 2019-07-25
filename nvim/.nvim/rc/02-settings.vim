@@ -78,7 +78,7 @@ set titleold="Terminal"
 
 "" windows
 set lazyredraw " only redraw if it's needed
-"set splitbelow " put a new window below the current one
+set splitbelow " put a new window below the current one
 "set splitright " put a new window right of the current one
 
 "" searching

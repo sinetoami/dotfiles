@@ -1,10 +1,11 @@
 "" dein.vim
 "" ************************************************************
+let g:dein#auto_recache = 1
+
 function! s:dein_cleanup() abort
   call map(dein#check_clean(), "delete(v:val, 'rf')")
   call dein#recache_runtimepath()
 endfunction
-
 command! DeinCleanUp call <sid>dein_cleanup()
 
 "" vim-tmux-navigator
@@ -195,6 +196,11 @@ let g:ruby_operators = 1
 
 "" vim-go
 "" ***********************************************************
+" let g:go_def_mapping_enabled = 0
+" let g:go_fmt_command = 'goimports'
+" let g:go_fmt_fail_silently = 1
+" let g:go_metalinter_deadline = "1s"
+
 let g:go_bin_path = $HOME . '/Workspace/go/bin'
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -209,3 +215,14 @@ let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
+
+"" vim-markdown
+"" ******************************************************
+let g:markdown_syntax_conceal = 0
+let g:markdown_fenced_languages = ['html', 'go', 'ruby', 'bash=sh']
+
+"" markdown-preview.nvim
+"" ******************************************************
+let g:mkdp_refresh_slow = 1
+let g:mkdp_browser = 'opera'
+let g:mkdp_echo_preview_url = 1

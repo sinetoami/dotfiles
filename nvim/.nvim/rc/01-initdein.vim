@@ -42,6 +42,7 @@ if dein#load_state('~/.cache/dein')
 	" FILES NAVIGATION
 	call dein#add('junegunn/fzf', { 'path': '~/.fzf', 'build': '~/.fzf/install --all' })
 	call dein#add('junegunn/fzf.vim')
+  call dein#add('duggiefresh/vim-easydir')
 	call dein#add('tpope/vim-eunuch')
 
   " WINDOWS NAVIGATION
@@ -49,6 +50,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('wesQ3/vim-windowswap')
 
 	" WRITING CODE
+  call dein#add('tpope/vim-endwise')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tmhedberg/matchit')
 	call dein#add('tpope/vim-commentary')
@@ -63,17 +65,22 @@ if dein#load_state('~/.cache/dein')
   call dein#add('fatih/vim-go') 
   call dein#add('sebdah/vim-delve')
   
-  "RUBY
+  " RUBY
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('tpope/vim-rake')
+  call dein#add('tpope/gem-ctags')
+  call dein#add('tpope/vim-bundler')
   call dein#add('nelstrom/vim-textobj-rubyblock')
+  call dein#add('hmarr/vim-gemfile')
   
   " SYNTAX
-	call dein#add('sheerun/vim-polyglot')
+	" call dein#add('sheerun/vim-polyglot')
+  call dein#add('tpope/vim-markdown')
   
   " OTHER STUFFS
   call dein#add('KabbAmine/zeavim.vim')
   call dein#add('godlygeek/tabular')
+  call dein#add('iamcco/markdown-preview.nvim', { 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'], 'build': 'cd app && yarn install' })
 
   "" END   - Add or remove your plugins
 	"" ************************************************************

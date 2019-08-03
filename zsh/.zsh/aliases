@@ -7,6 +7,7 @@ alias aup='antibody update' # [a]ntibody [up]date
 
 ## pacman/yay
 alias pacss='sudo pacman-fzf' # pacman -Ss
+alias pacrm='sudo pacman -Rscn'
 alias pacinf='sudo pacman-fzf -S' # pacman -S
 alias yass='yay-fzf' # yay -Ss
 alias yainf='yay-fzf -S' # yay -S

@@ -20,7 +20,7 @@ if has('autocmd')
   "" Text Wrapper {{{
   augroup TextFileTypeWrapper
     autocmd!
-    autocmd BufRead,BufNewFile *.txt,*.md,*.markdown call s:setupWrapping()
+    autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
     if !exists('*s:setupWrapping')
       function s:setupWrapping()
         set wrap

@@ -219,10 +219,9 @@ let g:go_highlight_extra_types = 1
 "" vim-markdown
 "" ******************************************************
 let g:markdown_syntax_conceal = 0
-let g:markdown_fenced_languages = ['html', 'go', 'ruby', 'bash=sh']
 
 "" markdown-preview.nvim
 "" ******************************************************
 let g:mkdp_refresh_slow = 1
-let g:mkdp_browser = 'opera'
+let g:mkdp_browser = 'firefox'
 let g:mkdp_echo_preview_url = 1

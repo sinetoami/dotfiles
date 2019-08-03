@@ -50,9 +50,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('wesQ3/vim-windowswap')
 
 	" WRITING CODE
-  call dein#add('tpope/vim-endwise')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tmhedberg/matchit')
+  call dein#add('tpope/vim-endwise')
 	call dein#add('tpope/vim-commentary')
   call dein#add('tpope/vim-surround')
   call dein#add('matze/vim-move')
@@ -60,6 +60,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('kana/vim-textobj-line')
   call dein#add('thinca/vim-textobj-between')
   call dein#add('AndrewRadev/splitjoin.vim')
+  call dein#add('mattn/emmet-vim')
 
   " GOLANG
   call dein#add('fatih/vim-go') 

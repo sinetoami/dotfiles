@@ -2,7 +2,7 @@
 
 # Setup colors
 WHITE=$(printf '\033[37m')
-GREENB=$(printf '\033[32m')
+GREEN=$(printf '\033[32m')
 RED=$(printf '\033[31m')
 YELLOW=$(printf '\033[33m')
 BLUE=$(printf '\033[34m')
@@ -109,8 +109,8 @@ command_exists git || {
 
 cmd=$1
 case "$cmd" in
-	--logo)
-		__print_logo
+	--msg)
+		quite_message
 	;;
 	--deps)
 		__deps_install

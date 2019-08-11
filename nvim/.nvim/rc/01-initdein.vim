@@ -76,9 +76,10 @@ if dein#load_state('~/.cache/dein')
   
   " SYNTAX
 	" call dein#add('sheerun/vim-polyglot')
-  call dein#add('tpope/vim-markdown')
+  " call dein#add('tpope/vim-markdown')
   
   " OTHER STUFFS
+  " call dein#add('sinetoami/sinokai.vim', 'rev': 'my-personal-rev' )
   call dein#add('KabbAmine/zeavim.vim')
   call dein#add('godlygeek/tabular')
   call dein#add('iamcco/markdown-preview.nvim', { 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'], 'build': 'cd app && yarn install' })

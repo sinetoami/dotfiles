@@ -218,7 +218,7 @@ let g:go_highlight_extra_types = 1
 
 "" vim-markdown
 "" ******************************************************
-let g:markdown_syntax_conceal = 0
+" let g:markdown_syntax_conceal = 0
 
 "" markdown-preview.nvim
 "" ******************************************************

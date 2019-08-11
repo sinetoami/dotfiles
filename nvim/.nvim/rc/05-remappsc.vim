@@ -92,3 +92,13 @@ nnoremap <C-s> :source %<cr>
 
 "" cycle numbering
 nnoremap <silent> <leader>cn :CycleNumbering<cr>
+
+"" check syntax highlight groups
+function! SynstackCheck() abort
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
+
+nnoremap <leader>sg :call SynstackCheck()<cr>

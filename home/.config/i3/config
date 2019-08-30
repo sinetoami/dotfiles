@@ -221,6 +221,7 @@ workspace $ws0 output $lvds
 # Windows
 new_window none
 for_window [class=".*"] border pixel 3
+for_window [class="Galculator"] floating enable
 
 # Gaps
 bindsym $win+Shift+t		gaps inner current set 15; gaps outer current set 15

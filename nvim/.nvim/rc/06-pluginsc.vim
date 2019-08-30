@@ -12,6 +12,16 @@ command! DeinCleanUp call <sid>dein_cleanup()
 "" ************************************************************
 let g:tmux_navigator_disable_when_zoomed = 1
 
+"" vim-workspace
+"" ************************************************************
+let g:workspace_autosave_always = 1
+
+"" vim-indentguides
+"" ************************************************************
+let g:indentguides_ignorelist = ['text']
+let g:indentguides_spacechar = ':'
+let g:indentguides_tabchar = ':'
+
 "" dimfocus.vim
 "" ************************************************************
 let g:dimfocus#fg = ['#727072', 248]
@@ -27,7 +37,7 @@ let g:lightline = {
 \   ],
 \   'right':[[ 'lineinfo' ],
 \            [ 'percent' ],
-\            [ 'fileformat', 'fileencoding', 'filetype' ],
+\            [ 'cocstatus', 'fileformat', 'fileencoding', 'filetype' ],
 \   ],
 \ },
 \ 'component': {
@@ -45,6 +55,7 @@ let g:lightline = {
 \ },
 \ 'component_function': {
 \   'gitstatus': 'lightline#hunks#composer',
+\   'cocstatus': 'coc#status'
 \ },
 \}
 
@@ -147,11 +158,11 @@ if exists('&signcolumn')  " Vim 7.4.2201
 else
   let g:gitgutter_sign_column_always = 1
 endif
-let g:gitgutter_sign_added = '┃' "'✚'
-let g:gitgutter_sign_modified = '┃' "'✹'
-let g:gitgutter_sign_removed = '◢' "'✖'
-let g:gitgutter_sign_modified_removed = '◥' "'✖'
-let g:gitgutter_sign_removed_first_line = '◢' "'✖'
+let g:gitgutter_sign_added = '┃'
+let g:gitgutter_sign_modified = '┃'
+let g:gitgutter_sign_removed = '◢'
+let g:gitgutter_sign_modified_removed = '◥'
+let g:gitgutter_sign_removed_first_line = '◢'
 
 "" vim-fugitive
 "" ***********************************************************
@@ -186,6 +197,33 @@ map <silent> <A-\> :Commentary<cr>
 "" ***********************************************************
 let g:AutoPairsMultilineClose = 0
 
+"" coc.nvim
+"" ***********************************************************
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+let g:coc_status_warning_sign = ' '
+let g:coc_status_error_sign = '❌'
+
+let g:coc_global_extensions = [
+      \ 'coc-emmet', 'coc-html', 'coc-css', 
+      \ 'coc-json', 'coc-tsserver', 'coc-solargraph',
+      \ ]
+" use tab for trigger completion with characters ahead and navigate.
+" use command ':verbose imap <tab>' to make sure tab is not mapped by other 
+" pluging.
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : 
+      \ <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <silent> <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" navigate to diagnostics
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+
+nmap <silent> crn <Plug>(coc-rename)
+
 "" vim-ruby
 "" ***********************************************************
 let g:ruby_indent_access_modifier_style = 'indent'
@@ -196,10 +234,10 @@ let g:ruby_operators = 1
 
 "" vim-go
 "" ***********************************************************
-" let g:go_def_mapping_enabled = 0
-" let g:go_fmt_command = 'goimports'
-" let g:go_fmt_fail_silently = 1
-" let g:go_metalinter_deadline = "1s"
+let g:go_def_mapping_enabled = 0
+let g:go_fmt_command = 'goimports'
+let g:go_fmt_fail_silently = 1
+let g:go_metalinter_deadline = "1s"
 
 let g:go_bin_path = $HOME . '/Workspace/go/bin'
 let g:go_highlight_types = 1
@@ -216,9 +254,25 @@ let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
 
+"" vim-test
+"" ******************************************************
+let test#strategy = 'vimux'
+let test#go#runner = 'richgo'
+let test#go#richgo#options = '-v -cover'
+
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
+"" switch.vim
+"" ******************************************************
+let g:switch_mapping = '-'
+
 "" vim-markdown
 "" ******************************************************
-" let g:markdown_syntax_conceal = 0
+let g:markdown_syntax_conceal = 0
 
 "" markdown-preview.nvim
 "" ******************************************************

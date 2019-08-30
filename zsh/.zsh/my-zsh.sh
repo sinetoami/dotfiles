@@ -29,3 +29,6 @@ for file in $files; do
 		source $ZSH/$file
 	fi
 done
+
+## ssh-agent
+eval `keychain --eval --quiet id_rsa`

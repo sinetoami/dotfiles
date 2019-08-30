@@ -271,7 +271,7 @@ fi
   prompt_golang_version() {
     _p9k_cached_cmd_stdout go version || return
     local -a match
-    [[ $_P9K_RETVAL == (#b)*go([[:digit:].]##)* ]] || return
+    [[ $_p9k_cache_val == (#b)*go([[:digit:].]##)* ]] || return
     local v=$match[1]
     local p=$(command go env GOPATH 2>/dev/null) || return
     local golang_files="(go.mod|*.go)"
@@ -297,7 +297,7 @@ fi
     local ruby_files="(Gemfile|Rakefile|config.ru|*.rb)"
     [[ $(command which ruby 2>/dev/null) && -n ${~ruby_files}(#qN) ]] || return
     _p9k_cached_cmd_stdout ruby --version || return
-    echo ${${_P9K_RETVAL#ruby }//p*/}
+    echo ${${_p9k_cache_val[2]#ruby }//p*/}
   }
 
   # icons nerdfonts - $'\ue605', $'\uf43b'

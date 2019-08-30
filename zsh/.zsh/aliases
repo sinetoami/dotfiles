@@ -28,6 +28,9 @@ alias lmpup!="asdf plugin-update --all"
 alias reshim="asdf reshim"
 alias asdfup="asdf update"
 
+## golang
+alias gomo='GO111MODULE=on go' # [go] [m]odule [o]n
+
 ## pipe shortcuts
 alias -g fzfp=' | fzf '
 alias -g fzyp=' | fzy '

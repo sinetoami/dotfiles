@@ -1,4 +1,5 @@
 *.terminfo
 *.netrwhist
 tmux/.tmux/plugins
+tmux/.tmux/resurrect
 #nvim/.nvim/bundle

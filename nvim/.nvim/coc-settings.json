@@ -1,0 +1,12 @@
+{
+  "solargraph.commandPath": "/home/snio/.asdf/shims/solargraph",
+  "solargraph.transport": "stdio",
+  "solargraph.completion": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    }
+  }
+}

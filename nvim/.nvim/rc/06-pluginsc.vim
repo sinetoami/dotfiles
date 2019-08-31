@@ -189,6 +189,7 @@ nnoremap <silent> <leader>gbr :Twiggy<cr>
 nnoremap <silent> <leader>gcm :Twiggy master<cr>
 nnoremap          <leader>gnb :call <sid>checkout_new_branch()<cr>
 
+
 "" vim-commentary
 "" ***********************************************************
 map <silent> <A-\> :Commentary<cr>
@@ -199,10 +200,21 @@ let g:AutoPairsMultilineClose = 0
 
 "" coc.nvim
 "" ***********************************************************
+"" Wrap multiple cursors like VSCode {{
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
+"" }}
+
+"" Completion triggers {{
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+"" }}
 
 let g:coc_status_warning_sign = ' '
 let g:coc_status_error_sign = '❌'
@@ -210,19 +222,35 @@ let g:coc_status_error_sign = '❌'
 let g:coc_global_extensions = [
       \ 'coc-emmet', 'coc-html', 'coc-css', 
       \ 'coc-json', 'coc-tsserver', 'coc-solargraph',
+      \ 'coc-snippets', 'coc-ultisnips',
       \ ]
+
+"" Remap keys {{
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> crn <Plug>(coc-rename)
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" multiple cursors
+nmap <expr> <silent> <C-c> <SID>select_current_word()
+xmap <silent> <C-c> <Plug>(coc-cursors-range)
+
 " use tab for trigger completion with characters ahead and navigate.
-" use command ':verbose imap <tab>' to make sure tab is not mapped by other 
-" pluging.
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : 
+inoremap <silent> <expr> <TAB> pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <silent> <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" navigate to diagnostics
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" Snippets
+let g:coc_snippet_next = '<tab>'
+imap <C-l> <Plug>(coc-snippets-expand)
+" }}
 
-nmap <silent> crn <Plug>(coc-rename)
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsExpandTrigger = '<c-l>'
 
 "" vim-ruby
 "" ***********************************************************

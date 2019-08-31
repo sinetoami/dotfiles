@@ -56,6 +56,8 @@ if dein#load_state('~/.cache/dein')
 
 	" WRITING CODE
   call dein#add('neoclide/coc.nvim', { 'merge':0, 'rev': 'release' })
+  call dein#add('SirVer/ultisnips')
+  call dein#add('honza/vim-snippets')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tmhedberg/matchit')
   call dein#add('tpope/vim-endwise')
@@ -69,6 +71,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('AndrewRadev/splitjoin.vim')
   call dein#add('mattn/emmet-vim')
   call dein#add('thaerkh/vim-indentguides')
+  call dein#add('terryma/vim-multiple-cursors')
 
   " CODE TOOLS
   call dein#add('benmills/vimux')
@@ -87,10 +90,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-bundler')
   call dein#add('nelstrom/vim-textobj-rubyblock')
   call dein#add('hmarr/vim-gemfile')
-  
+
   " SYNTAX
   call dein#add('tpope/vim-markdown')
-  call dein#add('ap/vim-css-color')
   
   " OTHER STUFFS
   call dein#add('sinetoami/sinokai.vim', { 'rev': 'my-personal-rev' })

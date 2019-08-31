@@ -8,5 +8,11 @@
       "rootPatterns": ["go.mod"],
       "filetypes": ["go"]
     }
-  }
+  },
+  "coc.source.ultisnips.enable": false,
+  "snippets.snipmate.enable": false,
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "gosnippets/UltiSnips"
+  ]
 }

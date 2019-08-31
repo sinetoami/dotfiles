@@ -9,6 +9,8 @@ cat << EOF
 	signingkey = $GPG_PUBKEY_HASH
 [core]
 	editor = $EDITOR
+[gpg]
+	program = /usr/bin/gpg2
 EOF
 }
 

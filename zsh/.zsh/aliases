@@ -30,6 +30,7 @@ alias asdfup="asdf update"
 
 ## golang
 alias gomo='GO111MODULE=on go' # [go] [m]odule [o]n
+alias gotest='go test ./... -json -cover | tparse -all -notests' # needs github.com/mfridman/tparse
 
 ## pipe shortcuts
 alias -g fzfp=' | fzf '

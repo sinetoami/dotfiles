@@ -15,6 +15,9 @@ source $ASDF_DIR/asdf.sh && source $ASDF_DIR/completions/asdf.bash
 export GOPATH=$HOME/Workspace/go:$HOME/Devspace/go:$HOME/Studyspace/go
 export PATH=$PATH:${GOPATH//://bin:}/bin
 
+## RUBY
+export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin
+
 ## FZF
 export FZF_TMUX=0
 export FZF_TMUX_HEIGHT=40

@@ -1,0 +1,10 @@
+neovim
+yarn
+optimist
+awesome_print
+pry
+pry-nav
+pry-remote
+pry-stack_explorer
+rubocop
+solargraph

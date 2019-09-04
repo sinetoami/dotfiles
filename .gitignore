@@ -2,4 +2,4 @@
 *.netrwhist
 tmux/.tmux/plugins
 tmux/.tmux/resurrect
-#nvim/.nvim/bundle
+nvim/.nvim/bundle

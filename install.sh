@@ -32,7 +32,20 @@ function quite_message() {
   echo "            https://github.com/sinetoami/dotfiles                        ";
   echo ""
   echo ''
-  echo -e "${NORMAL}"
+  echo -e "${OFF}"
+}
+
+function help_msg() {
+	echo "USAGE: "
+	echo "	./install.sh [OPTIONS]"
+	echo
+	echo "OPTIONS: "
+	echo "	-help		Show this message helper"
+	echo "	-deps		Install dependencies"
+	echo "	-dotfiles	Clone and setup .dotfiles from GitHub repository"
+	echo "	-neovim		Setup Neovim providers and configurations"
+	echo "	-asdf		Install ASDF language version manager"
+	exit 1
 }
 
 # Print checked status with brackets colorized
@@ -58,7 +71,7 @@ DOTFILES_ROOT=${DOTFILES_ROOT:-$HOME/.dotfiles}
 REPOSITORY=${REPOSITORY:-sinetoami/dotfiles}
 DOTFREPO=${DOTFREPO:-https://github.com/${REPOSITORY}.git}
 BRANCH=${BRANCH:-master}
-# ASDF_VERSION=${ASDF_VERSION:-v0.7.3}
+ASDF_VERSION=${ASDF_VERSION:-v0.7.3}
 
 # Check if exist a command
 function command_exists() {
@@ -66,6 +79,15 @@ function command_exists() {
 }
 
 # Install dependencies from Arch Linux packages
+function __pacman() {
+	sudo pacman -S "${@:2}" 2>/dev/null || {
+		error "$1: failed to install ${@:2}"
+		exit 1
+	}
+	
+	okay "pacman: packages sucessfully installed."
+}
+
 function __deps_install() {
 	local packages=(
 		git
@@ -74,24 +96,52 @@ function __deps_install() {
 		zsh
 		tmux
 		neovim
-		python-neovim
+		python-pynvim
 		stow
 	)
-	
-	sudo pacman -S "${packages[@]}" || {
-		error "failed to install packages"
-		exit 1
-	}
 
-	okay "packages successfully installed"
+	__pacman "$FUNCNAME" "${packages[@]}"
+	okay "$FUNCNAME :packages successfully installed"
 }
 
 # Cloning .dotfiles git repo
 function __setup_dotfiles() {
   git clone --depth=1 --branch "$BRANCH" "$DOTFREPO" "$DOTFILES_ROOT" || {
-	  error "git clone .dotfiles failed"
+	  error "$FUNCNAME: git clone .dotfiles failed"
 	  exit 1
   }
+}
+
+function __setup_neovim() {
+	## Setup Neovim providers
+	# Python
+	pip3 install --user pynvim
+	pip3 install --user --upgrade pynvim
+
+	# Ruby
+	__pacman $FUNCNAME ruby
+	gem install neovim
+
+	# NodeJS
+	__pacman $FUNCNAME nodejs npm
+	npm install -g neovim
+
+	# Link files
+}
+
+function __setup_asdf() {
+	asdf_url="https://github.com/asdf-vm/asdf.git"
+
+	if [[ $(command_exists asdf) ]]; then
+		git clone "$asdf_url" "$HOME/.asdf" --branch "$ASDF_VERSION" 2>/dev/null || {
+			error "$FUNCNAME: git clone asdf failed"
+			exit 1
+		}
+		okay "$FUNCNAME: asdf successfully installed"
+	else
+		asdf update &>/dev/null
+		okay "$FUNCNAME: asdf already installed"
+	fi
 }
 
 command_exists git || {
@@ -109,17 +159,27 @@ command_exists git || {
 
 cmd=$1
 case "$cmd" in
-	--msg)
+	-msg)
 		quite_message
 	;;
-	--deps)
+	-help)
+		help_msg
+	;;
+	-deps)
 		__deps_install
 	;;
-	--dotfiles)
+	-dotfiles)
 		__setup_dotfiles
 	;;
+	-neovim)
+		__setup_neovim
+	;;
+	-asdf)
+		__setup_asdf
+	;;
   *)
-    echo "nothing to do"
+	quite_message
+    okay "nothing to do"
     exit 1
     ;;
 esac

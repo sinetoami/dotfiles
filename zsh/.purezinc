@@ -70,7 +70,7 @@ typeset -g zincs_vcs[vcs_icon_status_staged]=$'\u271a'
 typeset -g zincs_vcs[loading_msg]='...'
 
 typeset -gA zincs_cwd_writable
-typeset -g zincs_cwd_writable[symbol]="❌"
+typeset -g zincs_cwd_writable[symbol]=""
 
 typeset -gA zincs_execution_time
 typeset -g zincs_execution_time[time_icon]=' ms'

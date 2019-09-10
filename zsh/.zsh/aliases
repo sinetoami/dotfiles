@@ -4,6 +4,8 @@
 alias ain='curl -sL git.io/antibody | sh -s' # install antibody simple way - [a]ntibody [in]stall
 alias abp='antibody bundle < ~/.antibody.txt > ~/.antibody.sh' # [a]ntibody [b]undle [p]lugins
 alias aup='antibody update' # [a]ntibody [up]date
+alias apu='antibody purge' # [a]ntibody [pu]rge
+alias als='antibody list' # [a]ntibody [l]i[s]t
 
 ## pacman/yay
 alias pacss='sudo pacman-fzf' # pacman -Ss

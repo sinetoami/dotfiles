@@ -42,6 +42,7 @@ if dein#load_state('~/.cache/dein')
   " GENERAL USE
   call dein#add('duggiefresh/vim-easydir')
 	call dein#add('tpope/vim-eunuch')
+  call dein#add('tpope/vim-scriptease')
   call dein#add('thaerkh/vim-workspace')
   call dein#add('sinetoami/winresize.vim')
 

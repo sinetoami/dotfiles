@@ -134,7 +134,7 @@ nnoremap <silent> <C-b> :Buffers<cr>
 nnoremap <silent> fgf   :GFiles<cr>
 nnoremap <silent> fgs   :GFiles?<cr>
 nnoremap <silent> fgc   :Commits<cr>
-nnoremap <silent> ffd   :Find<cr> 
+nnoremap <silent> ffd   :Find<cr>
 nnoremap <silent> fd!   :Find!<cr> 
 nnoremap <silent> fbl   :BLines<cr>
 nnoremap <silent> fhelp :Helptags<cr>

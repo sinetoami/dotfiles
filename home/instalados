@@ -159,3 +159,17 @@ galculator
 zathura zathura-cb zathura-djvu zathura-pdf-mupdf
 go: richgo
 keychain
+docker
+docker-compose
+hugo
+pygmentize
+gulp
+virtualbox-guest-iso
+virtualbox-gues-utils
+virtualbox
+gitlab
+gitlab-runner
+ansible
+ansible-lint
+postgresql
+pgadmin4

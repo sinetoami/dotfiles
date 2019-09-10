@@ -13,15 +13,14 @@ zsh-users/zsh-autosuggestions
 rupa/z
 changyuheng/fz
 
-## prompt theme
-zdharma/fast-syntax-highlighting
-romkatv/powerlevel10k
-
-## pure prompt
+## prompt
 mafredri/zsh-async
+robobenklein/zinc
+# romkatv/powerlevel10k
 # sindresorhus/pure
 ##
 
 ## misc
+zdharma/fast-syntax-highlighting
 sinetoami/vi-mode
 supercrabtree/k

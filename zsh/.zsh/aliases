@@ -14,6 +14,9 @@ alias pacinf='sudo pacman-fzf -S' # pacman -S
 alias yass='yay-fzf' # yay -Ss
 alias yainf='yay-fzf -S' # yay -S
 
+## gitlab cli
+[[ ! $(echo $TERM) =~ xterm-256color ]] && alias lab='TERM="xterm-256color" lab' || alias lab='lab'
+
 ## asdf
 alias lmin="asdf-lmi-fzf"
 alias lmun="asdf-lmc-fzf"

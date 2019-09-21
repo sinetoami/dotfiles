@@ -45,15 +45,13 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-scriptease')
   call dein#add('thaerkh/vim-workspace')
   call dein#add('sinetoami/winresize.vim')
+	call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('wesQ3/vim-windowswap')
 
 	" SEARCH ENGINES
 	call dein#add('junegunn/fzf', { 'path': '~/.fzf', 'build': '~/.fzf/install --all' })
 	call dein#add('junegunn/fzf.vim')
   call dein#add('sinetoami/fzy.nvim')
-
-  " WINDOW NAVIGATION
-	call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('wesQ3/vim-windowswap')
 
 	" WRITING CODE
   call dein#add('neoclide/coc.nvim', { 'merge':0, 'rev': 'release' })
@@ -71,7 +69,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('AndrewRadev/switch.vim')
   call dein#add('AndrewRadev/splitjoin.vim')
   call dein#add('mattn/emmet-vim')
-  call dein#add('thaerkh/vim-indentguides')
   call dein#add('terryma/vim-multiple-cursors')
 
   " CODE TOOLS

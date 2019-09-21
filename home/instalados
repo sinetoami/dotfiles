@@ -173,3 +173,5 @@ ansible
 ansible-lint
 postgresql
 pgadmin4
+gem: tmuxinator
+asciinema

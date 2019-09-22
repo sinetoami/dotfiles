@@ -18,7 +18,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 "" Required:
 if dein#load_state('~/.cache/dein')
 	call dein#begin('~/.cache/dein')
-	
+
 	"" Required:
 	call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
@@ -47,6 +47,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('sinetoami/winresize.vim')
 	call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('wesQ3/vim-windowswap')
+  call dein#add('dhruvasagar/vim-zoom')
 
 	" SEARCH ENGINES
 	call dein#add('junegunn/fzf', { 'path': '~/.fzf', 'build': '~/.fzf/install --all' })

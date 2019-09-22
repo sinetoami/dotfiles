@@ -6,7 +6,10 @@ function! s:dein_cleanup() abort
   call map(dein#check_clean(), "delete(v:val, 'rf')")
   call dein#recache_runtimepath()
 endfunction
+
 command! DeinCleanUp call <sid>dein_cleanup()
+command! DeinInstall call <sid>dein#install()
+command! DeinUpdate  call <sid>dein#update()
 
 "" vim-tmux-navigator
 "" ************************************************************
@@ -15,6 +18,7 @@ let g:tmux_navigator_disable_when_zoomed = 1
 "" vim-workspace
 "" ************************************************************
 let g:workspace_autosave_always = 1
+let g:workspace_session_name = 'Session.vim'
 
 "" vim-indentguides
 "" ************************************************************
@@ -33,7 +37,7 @@ let g:lightline = {
 \ 'colorscheme': 'sinokai',
 \ 'active': {
 \   'left':[['mode', 'paste' ],
-\ 	      ['gitstatus', 'readonly', 'filename', 'modified'],
+\ 	      ['gitstatus', 'readonly', 'filename', 'modified', 'vimzoom'],
 \   ],
 \   'right':[[ 'lineinfo' ],
 \            [ 'percent' ],
@@ -55,7 +59,8 @@ let g:lightline = {
 \ },
 \ 'component_function': {
 \   'gitstatus': 'lightline#hunks#composer',
-\   'cocstatus': 'coc#status'
+\   'cocstatus': 'coc#status',
+\   'vimzoom': 'zoom#statusline'
 \ },
 \}
 
@@ -96,7 +101,7 @@ let g:lightline#dimfocus#blur =
 \ 'normal': {
 \   'left': [ 
 \     [s:lgray[0], s:mgray[0], s:lgray[1], s:mgray[1], 'bold'], 
-\     [s:lgray[0], s:mgray[0], s:lgray[1], s:mgray[1]], 
+\     [s:lgray[0], s:mgray[0], s:lgray[1], s:mgray[1]],
 \   ],
 \   'right': [ 
 \     [s:lgray[0], s:mgray[0], s:mgray[1], s:mgray[1], 'bold'], 
@@ -117,7 +122,7 @@ if executable('rg')
   command! -bang -nargs=* Find call fzf#vim#grep(
             \'rg --column --line-number --no-heading --hidden --color=always --smart-case --glob "!*.git" '
             \.shellescape(<q-args>), 1, <bang>0 ? fzf#vim#with_preview('up:60%') 
-            \: fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0) 
+            \: fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 endif
 
 function! s:changebranch(branch)

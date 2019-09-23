@@ -8,8 +8,8 @@ function! s:dein_cleanup() abort
 endfunction
 
 command! DeinCleanUp call <sid>dein_cleanup()
-command! DeinInstall call <sid>dein#install()
-command! DeinUpdate  call <sid>dein#update()
+command! DeinInstall call dein#install()
+command! DeinUpdate  call dein#update()
 
 "" vim-tmux-navigator
 "" ************************************************************
@@ -148,13 +148,6 @@ nnoremap <silent> fhelp :Helptags<cr>
 "" ***********************************************************
 nnoremap <silent> <C-A-p> :Fzy<cr>
 
-"" winresize.vim
-"" ******************************************************
-nnoremap <silent> <S-A-Left>  :WinResizeLeft<cr>
-nnoremap <silent> <S-A-Right> :WinResizeRight<cr>
-nnoremap <silent> <S-A-Up>    :WinResizeTop<cr>
-nnoremap <silent> <S-A-Down>  :WinResizeBottom<cr>
-
 "" vim-gitgutter
 "" ***********************************************************
 set updatetime=100
@@ -233,11 +226,11 @@ let g:coc_global_extensions = [
 "" Remap keys {{
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
+xmap <leader>f    <Plug>(coc-format-selected)
+nmap <silent> ]c  <Plug>(coc-diagnostic-next)
+nmap <silent> [c  <Plug>(coc-diagnostic-prev)
 nmap <silent> crn <Plug>(coc-rename)
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf   <Plug>(coc-fix-current)
 
 " multiple cursors
 nmap <expr> <silent> <C-c> <SID>select_current_word()
@@ -305,12 +298,13 @@ nmap <silent> t<C-g> :TestVisit<CR>
 "" ******************************************************
 let g:switch_mapping = '-'
 
-"" vim-markdown
+"" vim-markdown (markdown-preview.nvim)
 "" ******************************************************
 let g:markdown_syntax_conceal = 0
+" let g:mkdp_browser = 'firefox'
+" let g:mkdp_refresh_slow = 1
+" let g:mkdp_echo_preview_url = 1
 
-"" markdown-preview.nvim
+"" vim-json
 "" ******************************************************
-let g:mkdp_refresh_slow = 1
-let g:mkdp_browser = 'firefox'
-let g:mkdp_echo_preview_url = 1
+let g:vim_json_syntax_conceal = 0

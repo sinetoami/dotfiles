@@ -44,7 +44,7 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('tpope/vim-eunuch')
   call dein#add('tpope/vim-scriptease')
   call dein#add('thaerkh/vim-workspace')
-  call dein#add('sinetoami/winresize.vim')
+  call dein#add('simeji/winresizer')
 	call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('wesQ3/vim-windowswap')
   call dein#add('dhruvasagar/vim-zoom')
@@ -92,11 +92,12 @@ if dein#load_state('~/.cache/dein')
 
   " SYNTAX
   call dein#add('tpope/vim-markdown')
-  
+  call dein#add('cespare/vim-toml')
+  call dein#add('elzr/vim-json')
+
   " OTHER STUFFS
   call dein#add('sinetoami/sinokai.vim', { 'rev': 'my-personal-rev' })
   call dein#add('godlygeek/tabular')
-  call dein#add('iamcco/markdown-preview.nvim', { 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'], 'build': 'cd app && yarn install' })
 
   " END   - Add or remove your plugins
 	"" ************************************************************

@@ -26,18 +26,17 @@ zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zplugin snippet OMZ::plugins/archlinux/archlinux.plugin.zsh
 zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
 
-## completions
-zplugin light zsh-users/zsh-completions
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light rupa/z
-zplugin light changyuheng/fz
-
 ## prompt
 zplugin light mafredri/zsh-async
 zplugin ice atload'source ~/.p10k-pure.zsh' lucid nocd; zplugin light romkatv/powerlevel10k
-##
+
+## completions
+zplugin light zsh-users/zsh-completions
+zplugin light zsh-users/zsh-autosuggestions
 
 ## misc
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light sinetoami/vi-mode
 zplugin light supercrabtree/k
+zplugin light rupa/z
+zplugin light changyuheng/fz

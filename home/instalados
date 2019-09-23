@@ -153,7 +153,6 @@ jq
 yarn
 npm: tslib
 wps-office
-dep
 python2-pip
 galculator
 zathura zathura-cb zathura-djvu zathura-pdf-mupdf
@@ -167,6 +166,7 @@ gulp
 virtualbox-guest-iso
 virtualbox-gues-utils
 virtualbox
+lab
 gitlab
 gitlab-runner
 ansible

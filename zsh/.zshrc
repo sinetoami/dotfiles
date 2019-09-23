@@ -8,5 +8,3 @@ HISTIGNORE="&:ls:ll:la:l.:pwd:exit:clear:clr:[bf]g"
 plugins=(git)
 files=(aliases envvars bindkeys)
 source $ZSH/my-zsh.sh
-source ~/.purezinc
-# source ~/.purepower

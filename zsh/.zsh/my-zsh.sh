@@ -10,10 +10,14 @@ fpath=($ZSH/completions $fpath)
 autoload -Uz compinit
 compinit
 
-## Antibody
-# NOTE: make sure source antibody.sh before my personal settings
-# to garantee my personal settings overrule some loaded plugin
-source $HOME/.antibody.sh
+## ssh-agent
+eval `keychain --eval --quiet id_rsa`
+
+## Zplugin
+source '/home/snio/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source ~/.zplugin-plugins.zsh
 
 ## Load a source all my personal plugins
 for plugin ($plugins) do
@@ -22,6 +26,7 @@ for plugin ($plugins) do
 		source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 	fi
 done
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## Load Environment
 for file in $files; do
@@ -30,5 +35,5 @@ for file in $files; do
 	fi
 done
 
-## ssh-agent
-eval `keychain --eval --quiet id_rsa`
+## To customize prompt, edit ~/.p10k-pure.zsh or ~/.purezinc.
+[[ -f ~/.p10k-pure.zsh ]] && source ~/.p10k-pure.zsh

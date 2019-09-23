@@ -1,50 +1,30 @@
 #!/bin/bash
-
-_is_enabled() {
-  ( ([ x"$1" = x"enabled" ] || [ x"$1" = x"true" ] || [ x"$1" = x"yes" ] || [ x"$1" = x"1" ]) && return 0 ) || return 1
-}
+source ~/.tmux/scripts/functions.sh
 
 _username() {
- tty=${1:-$(tmux display -p '#{pane_tty}')}
- ssh_only=$2
- # shellcheck disable=SC2039
- if [ x"$OSTYPE" = x"cygwin" ]; then
-   pid=$(ps -a | awk -v tty="${tty##/dev/}" '$5 == tty && /ssh/ && !/vagrant ssh/ && !/autossh/ && !/-W/ { print $1 }')
-   [ -n "$pid" ] && ssh_parameters=$(tr '\0' ' ' < "/proc/$pid/cmdline" | sed 's/^ssh //')
- else
-   ssh_parameters=$(ps -t "$tty" -o command= | awk '/ssh/ && !/vagrant ssh/ && !/autossh/ && !/-W/ { $1=""; print $0; exit }')
- fi
- if [ -n "$ssh_parameters" ]; then
-   # shellcheck disable=SC2086
-   username=$(ssh -G $ssh_parameters 2>/dev/null | awk 'NR > 2 { exit } ; /^user / { print $2 }')
-   # shellcheck disable=SC2086
-   [ -z "$username" ] && username=$(ssh -T -o ControlPath=none -o ProxyCommand="sh -c 'echo %%username%% %r >&2'" $ssh_parameters 2>&1 | awk '/^%username% / { print $2; exit }')
- else
-   if ! _is_enabled "$ssh_only"; then
-     # shellcheck disable=SC2039
-     if [ x"$OSTYPE" = x"cygwin" ]; then
-       username=$(whoami)
-     else
-       username=$(ps -t "$tty" -o user= -o pid= -o ppid= -o command= | awk '
-         !/ssh/ { user[$2] = $1; ppid[$3] = 1 }
-         END {
-           for (i in user)
-             if (!(i in ppid))
-             {
-               print user[i]
-               exit
-             }
-         }
-       ')
-     fi
-   fi
- fi
+	tty=${1:-$(tmux display -p '#{pane_tty}')}
+	ssh_only=$2
 
- if [ x"$username" = x"root" ]; then
-   echo "#[fg=brightred,bg=#2d2a2e,bold]  $username"
- else
-   echo "#[fg=brightgreen,bg=#2d2a2e,bold]  $username"
- fi
+	tty_info=$(_tty_info "$tty")
+	command=$(printf '%s' "$tty_info" | cut -d' ' -f3-)
+
+	ssh_or_mosh_args=$(_ssh_or_mosh_args "$command")
+	if [ -n "$ssh_or_mosh_args" ]; then
+	 # shellcheck disable=SC2086
+	 username=$(ssh -G $ssh_or_mosh_args 2>/dev/null | awk 'NR > 2 { exit } ; /^user / { print $2 }')
+	 # shellcheck disable=SC2086
+	 [ -z "$username" ] && username=$(ssh -T -o ControlPath=none -o ProxyCommand="sh -c 'echo %%username%% %r >&2'" $ssh_or_mosh_args 2>&1 | awk '/^%username% / { print $2; exit }')
+	else
+	 if ! _is_enabled "$ssh_only"; then
+	   username=$(printf '%s' "$tty_info" | cut -d' ' -f2)
+	 fi
+	fi
+
+	if [ x"$username" = x"root" ]; then
+		echo "#[fg=brightred,bg=#2d2a2e,bold]  $username"
+	else
+		echo "#[fg=brightgreen,bg=#2d2a2e,bold]  $username"
+	fi
 }
 
 _username

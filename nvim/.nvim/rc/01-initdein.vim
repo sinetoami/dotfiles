@@ -33,7 +33,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('junegunn/gv.vim')
   call dein#add('sodapopcan/vim-twiggy')
 
-	" INTERFACE 
+	" INTERFACE
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('mengelbrecht/lightline-bufferline')
 	call dein#add('sinetoami/lightline-hunks')

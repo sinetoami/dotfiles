@@ -16,16 +16,17 @@ Getting Started
 Shortcuts, Commands and Plugins
 -------------------------------
 ### tmux plugins
-| plugin                                    | description                                         |
-| ---                                       | ---                                                 |
-| [tmux-plugins/tpm][]                      | tmux plugin manager                                 |
-| [tmux-plugins/tmux-yank][]                | copy to the system clipboard in tmux                |
-| [tmux-plugins/tmux-copycat][]             | enhances tmux search                                |
-| [tmux-plugins/tmux-open][]                | open highlighted selection                          |
-| [tmux-plugins/tmux-urlview][]             | open urls                                           |
-| [tmux-plugins/tmux-prefix-highlight][]    | show the prefix highlighted when press it           |
-| [christoomey/vim-tmux-navigator][]        | enable navigation between tmux panes and vim splits |
-| [kristijanhusak/tmux-simple-git-status][] | shows git status tmux statusbar                     |
+| plugin                                    | description                                            |
+| ---                                       | ---                                                    |
+| [tmux-plugins/tpm][]                      | tmux plugin manager                                    |
+| [christoomey/vim-tmux-navigator][]        | enable navigation between tmux panes and vim splits    |
+| [tmux-plugins/tmux-copycat][]             | enhances tmux search                                   |
+| [tmux-plugins/tmux-yank][]                | copy to the system clipboard in tmux                   |
+| [tmux-plugins/tmux-open][]                | open highlighted selection                             |
+| [tmux-plugins/tmux-urlview][]             | open urls                                              |
+| [nhdaly/tmux-better-mouse-mode]           | a tmux plugin to better manage and configure the mouse |
+| [tmux-plugins/tmux-prefix-highlight][]    | show the prefix highlighted when press it              |
+| [kristijanhusak/tmux-simple-git-status][] | shows git status tmux statusbar                        |
 
 ### tmux commands
 | command            | description                          |
@@ -61,10 +62,13 @@ Note1: `[CPM]` means `CopyMode`.
 [zsh]: http://zsh.org
 [tmux]: https://github.com/tmux/tmux
 [tmux-plugins/tpm]: https://github.com/tmux-plugins/tpm
-[tmux-plugins/tmux-yank]: https://github.com/tmux-plugins/tmux-yank
+[christoomey/vim-tmux-navigator]: https://github.com/tmux-plugins/vim-tmux-navigator
+[tmux-plugins/tmux-resurrect]: https://github.com/tmux-plugins/tmux-resurrect
+[tmux-plugins/tmux-continuum]: https://github.com/tmux-plugins/tmux-continuum
 [tmux-plugins/tmux-capycat]: https://github.com/tmux-plugins/tmux-copycat
+[tmux-plugins/tmux-yank]: https://github.com/tmux-plugins/tmux-yank
 [tmux-plugins/tmux-open]: https://github.com/tmux-plugins/tmux-open
 [tmux-plugins/tmux-urlview]: https://github.com/tmux-plugins/tmux-urlview
+[nhdaly/tmux-better-mouse-mode]: https://github.com/NHDaly/tmux-better-mouse-mode
 [tmux-plugins/tmux-prefix-highlight]: https://github.com/tmux-plugins/tmux-prefix-highlight
-[christoomey/vim-tmux-navigator]: https://github.com/tmux-plugins/vim-tmux-navigator
 [kristijanhusak/tmux-simple-git-status]: https://github.com/tmux-plugins/tmux-simple-git-status

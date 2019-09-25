@@ -48,6 +48,7 @@ Shortcuts, Commands and Plugins
 | [sinetoami/vi-mode][]                | enable vim-like mode for zsh                      |
 | [supercrabtree/k][]                  | new `l` command with color and some git status    |
 | [rupa/z][]                           | z - jump around                                   |
+| [hlissner/zsh-autopair][]            | Auto-close and delete matching delimiters in zsh  |
 
 ### zsh commands
 | command    | description                                                                           |
@@ -105,3 +106,4 @@ Shortcuts, Commands and Plugins
 [sinetoami/vi-mode]: https://github.com/sinetoami/vi-mode
 [supercrabtree/k]: https://github.com/supercrabtree/k
 [rupa/z]: https://github.com/rupa/z
+[hlissner/zsh-autopair]: https://github.com/hlissner/zsh-autopair

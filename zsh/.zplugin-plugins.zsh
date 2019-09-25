@@ -40,3 +40,4 @@ zplugin light sinetoami/vi-mode
 zplugin light supercrabtree/k
 zplugin light rupa/z
 zplugin light changyuheng/fz
+zplugin light hlissner/zsh-autopair

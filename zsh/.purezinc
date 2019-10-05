@@ -45,7 +45,7 @@ function _zc_newline () {
   echo ""
 }
 
-source ~/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robobenklein-SLASH-zinc/zinc_functions/-zinc-add-hook
+source ~/.zplugin/plugins/robobenklein---zinc/zinc_functions/-zinc-add-hook
 -zinc-add-hook _zinc_precmd _zc_newline
 
 zinc_opts=(

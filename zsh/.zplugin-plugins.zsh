@@ -26,9 +26,17 @@ zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zplugin snippet OMZ::plugins/archlinux/archlinux.plugin.zsh
 zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
 
-## prompt
-zplugin light mafredri/zsh-async
-zplugin ice atload'source ~/.p10k-pure.zsh' lucid nocd; zplugin light romkatv/powerlevel10k
+## powerlevel10k prompt
+zplugin ice atload'source ~/.p10k-pure.zsh' lucid
+zplugin light romkatv/powerlevel10k
+
+## pure prompt
+# zplugin ice pick"async.zsh" src"pure.zsh"
+# zplugin light sindresorhus/pure
+
+## zinc prompt
+# zplugin ice atload'source ~/.purezinc' lucid 
+# zplugin light robobenklein/zinc
 
 ## completions
 zplugin light zsh-users/zsh-completions

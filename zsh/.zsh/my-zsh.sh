@@ -34,6 +34,3 @@ for file in $files; do
 		source $ZSH/$file
 	fi
 done
-
-## To customize prompt, edit ~/.p10k-pure.zsh or ~/.purezinc.
-[[ -f ~/.p10k-pure.zsh ]] && source ~/.p10k-pure.zsh

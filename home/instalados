@@ -23,7 +23,6 @@ i3lock-color
 i3lock-next-git
 i3status
 i3blocks
-py3status
 sysstat
 python-pyudev
 python-pydbus

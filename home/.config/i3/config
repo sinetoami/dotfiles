@@ -87,12 +87,15 @@ bindsym $win+Control+c exec rofi -width 65 -lines 10 -modi 'clipboard:greenclip 
 
 
 ## ------------ MEDIA VOLUME ------------ ##
-bindsym XF86AudioRaiseVolume exec --no-startup-id i3volume up
-bindsym XF86AudioLowerVolume exec --no-startup-id i3volume down
-bindsym XF86AudioMute exec --no-startup-id i3volume mute
-bindsym $win+F12 exec --no-startup-id i3volume up
-bindsym $win+F11 exec --no-startup-id i3volume down
-
+# change volume or toggle mute
+# bindsym XF86AudioRaiseVolume exec --no-startup-id i3volume up
+# bindsym XF86AudioLowerVolume exec --no-startup-id i3volume down
+# bindsym XF86AudioMute exec --no-startup-id i3volume mute
+bindsym XF86AudioRaiseVolume exec amixer -q -D sysdefault sset Master 5%+ && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D sysdefault sset Master 5%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer -q -D sysdefault sset Master toggle && pkill -RTMIN+10 i3blocks
+bindsym $win+F12 exec amixer -q -D sysdefault sset Master 5%+ && pkill -RTMIN+10 i3blocks
+bindsym $win+F11 exec amixer -q -D sysdefault sset Master 5%- && pkill -RTMIN+10 i3blocks
 
 ## ------------ RESTART/RELOAD/LOCKSCREEN/EXIST ------------ ##
 bindsym $win+Shift+r restart
@@ -222,6 +225,7 @@ workspace $ws0 output $lvds
 new_window none
 for_window [class=".*"] border pixel 3
 for_window [class="Galculator"] floating enable
+for_window [class="Yad"] floating enable
 
 # Gaps
 bindsym $win+Shift+t		gaps inner current set 15; gaps outer current set 15
@@ -276,11 +280,11 @@ client.background 		#282C34
 bar {
   position top
 	output $lvds
-	status_command py3status -c ~/.config/i3/i3status-lvds.conf
+	# status_command py3status -c ~/.config/i3/i3status-lvds.conf
+  status_command i3blocks -c /home/snio/.config/i3/i3blocks.conf
 	tray_output $lvds
   tray_padding 3
 
-	#font pango:Source Code Pro Black 9
 	font pango:DejaVu Sans Condensed Bold 8
 	colors {
 		background #19181a
@@ -292,13 +296,14 @@ bar {
 		urgent_workspace   #BD2C40 #BD2C40 #FFFFFF
 		binding_mode       #BD2C40 #BD2C40 #FFFFFF
 	}
-} 
+}
 
 # HDMI/VGA monitor
 bar {
   position top
 	output $hdmi
-	status_command py3status -c ~/.config/i3/i3status-hdmi.conf
+	# status_command py3status -c ~/.config/i3/i3status-hdmi.conf
+  status_command i3blocks -c /home/snio/.config/i3/i3blocks.conf
 	tray_output $lvds
   tray_padding 3
 
@@ -313,4 +318,4 @@ bar {
 		urgent_workspace   #BD2C40 #BD2C40 #FFFFFF
 		binding_mode       #BD2C40 #BD2C40 #FFFFFF
 	}
-} 
+}

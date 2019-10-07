@@ -26,5 +26,5 @@ autocmd FileType yaml set si ts=2 sts=2 sw=2 sta et
 autocmd FileType conf set si ts=2 sts=2 sw=2 sta et
 autocmd FileType xdefaults setlocal commentstring=!%s
 autocmd FileType antibody setlocal commentstring=#%s
-autocmd BufNewFile,BufRead i3status*.conf setlocal filetype=conf
+autocmd BufNewFile,BufRead *.conf setlocal filetype=conf
 autocmd BufNewfile,BufRead .antibody.txt setlocal filetype=antibody syntax=conf

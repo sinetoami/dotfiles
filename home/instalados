@@ -39,7 +39,7 @@ alsa-plugins
 flac 
 wavpack 
 acc 
-a52dec 
+a52dec
 celt 
 lame 
 libmad 
@@ -159,6 +159,8 @@ go: richgo
 keychain
 docker
 docker-compose
+docker-machine
+net-tools
 hugo
 pygmentize
 gulp

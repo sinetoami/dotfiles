@@ -98,6 +98,7 @@ if dein#load_state('~/.cache/dein')
   " OTHER STUFFS
   call dein#add('sinetoami/sinokai.vim', { 'rev': 'my-personal-rev' })
   call dein#add('godlygeek/tabular')
+  call dein#add('euclio/vim-markdown-composer', { 'build': 'cargo build --release --verbose' })
 
   " END   - Add or remove your plugins
 	"" ************************************************************

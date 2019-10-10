@@ -298,12 +298,10 @@ nmap <silent> t<C-g> :TestVisit<CR>
 "" ******************************************************
 let g:switch_mapping = '-'
 
-"" vim-markdown (markdown-preview.nvim)
+"" vim-markdown (vim-markdown-composer)
 "" ******************************************************
 let g:markdown_syntax_conceal = 0
-" let g:mkdp_browser = 'firefox'
-" let g:mkdp_refresh_slow = 1
-" let g:mkdp_echo_preview_url = 1
+let g:markdown_composer_browser = 'firefox'
 
 "" vim-json
 "" ******************************************************

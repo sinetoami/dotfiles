@@ -11,7 +11,7 @@ autoload -Uz compinit
 compinit
 
 ## ssh-agent
-eval `keychain --eval --quiet id_rsa`
+# eval `keychain --eval --quiet id_rsa`
 
 ## Zplugin
 source '/home/snio/.zplugin/bin/zplugin.zsh'

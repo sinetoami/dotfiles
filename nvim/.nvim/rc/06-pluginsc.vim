@@ -302,6 +302,7 @@ let g:switch_mapping = '-'
 "" ******************************************************
 let g:markdown_syntax_conceal = 0
 let g:markdown_composer_browser = 'firefox'
+let g:markdown_composer_autostart = 0
 
 "" vim-json
 "" ******************************************************

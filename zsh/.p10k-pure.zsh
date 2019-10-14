@@ -90,7 +90,7 @@
 	# segment is always an anchor.
 	typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=blue
 	# Don't shorten this many last directory segments. They are anchors.
-	typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+	typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 	# Shorten directory if it's longer than this even if there is space for it. The value can
 	# be either absolute (e.g., '80') or a percentage of terminal width (e.g, '50%'). If empty,
 	# directory will be shortened only when prompt doesn't fit.

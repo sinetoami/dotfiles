@@ -3,15 +3,15 @@ is_plugin() {
   test -f $1/plugins/$2/$2.plugin.zsh
 }
 
+## ssh-agent
+eval `keychain --eval --quiet id_rsa`
+
 ## Add all my personal completions
 fpath=($ZSH/completions $fpath)
 
 ## The following lines were added by compinstall
 autoload -Uz compinit
 compinit
-
-## ssh-agent
-eval `keychain --eval --quiet id_rsa`
 
 ## Zplugin
 source '/home/snio/.zplugin/bin/zplugin.zsh'

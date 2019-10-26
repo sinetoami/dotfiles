@@ -105,7 +105,7 @@ let g:lightline#dimfocus#blur =
 \   ],
 \   'right': [ 
 \     [s:lgray[0], s:mgray[0], s:mgray[1], s:mgray[1], 'bold'], 
-\     [s:lgray[0], s:mgray[0], s:lgray[1], s:mgray[1]], 
+\     [s:lgray[0], s:mgray[0], s:lgray[1], s:mgray[1]],
 \     [s:lgray[0], s:dgray[0], s:lgray[1], s:dgray[1]] 
 \    ],
 \ },
@@ -117,11 +117,11 @@ let g:fzf_layout = { 'up': '~45%' }
 
 " set ripgrep to default engine
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --smart-case --glob "!*.git"'
+  let $FZF_DEFAULT_OPTS = '--layout=default'
   set grepprg=rg\ --vimgrep
   command! -bang -nargs=* Find call fzf#vim#grep(
             \'rg --column --line-number --no-heading --hidden --color=always --smart-case --glob "!*.git" '
-            \.shellescape(<q-args>), 1, <bang>0 ? fzf#vim#with_preview('up:60%') 
+            \.shellescape(<q-args>), 1, <bang>0 ? fzf#vim#with_preview('up:60%')
             \: fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 endif
 
@@ -187,7 +187,6 @@ nnoremap <silent> <leader>gbr :Twiggy<cr>
 nnoremap <silent> <leader>gcm :Twiggy master<cr>
 nnoremap          <leader>gnb :call <sid>checkout_new_branch()<cr>
 
-
 "" vim-commentary
 "" ***********************************************************
 map <silent> <A-\> :Commentary<cr>
@@ -215,10 +214,10 @@ endfunction
 "" }}
 
 let g:coc_status_warning_sign = ' '
-let g:coc_status_error_sign = '❌'
+let g:coc_status_error_s = 'x '
 
 let g:coc_global_extensions = [
-      \ 'coc-emmet', 'coc-html', 'coc-css', 
+      \ 'coc-emmet', 'coc-html', 'coc-css',
       \ 'coc-json', 'coc-tsserver', 'coc-solargraph',
       \ 'coc-snippets', 'coc-ultisnips',
       \ ]
@@ -240,6 +239,7 @@ xmap <silent> <C-c> <Plug>(coc-cursors-range)
 inoremap <silent> <expr> <TAB> pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <silent> <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <c-l> coc#refresh()
 
 " Snippets
 let g:coc_snippet_next = '<tab>'
@@ -248,9 +248,9 @@ imap <C-l> <Plug>(coc-snippets-expand)
 
 "" ultisnips
 "" ***********************************************************
-" let g:UltiSnipsJumpForwardTrigger = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-" let g:UltiSnipsExpandTrigger = '<c-l>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsExpandTrigger = '<c-l>'
 
 "" vim-ruby
 "" ***********************************************************
@@ -267,7 +267,7 @@ let g:go_fmt_command = 'goimports'
 let g:go_fmt_fail_silently = 1
 let g:go_metalinter_deadline = "1s"
 
-let g:go_bin_path = $HOME . '/Workspace/go/bin'
+let g:go_bin_path = $HOME . '/.go/bin'
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1

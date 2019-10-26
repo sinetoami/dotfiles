@@ -21,9 +21,9 @@ _username() {
 	fi
 
 	if [ x"$username" = x"root" ]; then
-		echo "#[fg=brightred,bg=#2d2a2e,bold]  $username"
+		echo "#[fg=brightred,bg=colour235,bold]$username"
 	else
-		echo "#[fg=brightgreen,bg=#2d2a2e,bold]  $username"
+		echo "#[bg=colour235,fg=colour255,none]$username"
 	fi
 }
 

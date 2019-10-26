@@ -12,7 +12,7 @@ export ASDF_DIR=$HOME/.asdf
 source $ASDF_DIR/asdf.sh && source $ASDF_DIR/completions/asdf.bash
 
 ## GOLANG
-export GOPATH=$HOME/Workspace/go:$HOME/Devspace/go:$HOME/Studyspace/go
+export GOPATH=$HOME/.go:$HOME/Devspace/go:$HOME/Studyspace/go
 export PATH=$PATH:${GOPATH//://bin:}/bin
 
 ## RUBY

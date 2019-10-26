@@ -1,5 +1,15 @@
 ## oh-my-zsh plugins
-# OMZ libraries
+autoload -Uz compinit
+compinit
+
+## local sources
+zplugin ice atload"fpath+=( \$PWD );"
+zplugin light $ZSH/completions
+
+zplugin ice atinit'local i; for i in *.sh; do source $i; done';
+zplugin light $ZSH
+
+## OMZ libraries
 local _ZSHRC_OMZ_LIBS=(
 	compfix.zsh
 	completion.zsh
@@ -26,18 +36,6 @@ zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zplugin snippet OMZ::plugins/archlinux/archlinux.plugin.zsh
 zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
 
-## powerlevel10k prompt
-zplugin ice atload'source ~/.p10k-pure.zsh' lucid
-zplugin light romkatv/powerlevel10k
-
-## pure prompt
-# zplugin ice pick"async.zsh" src"pure.zsh"
-# zplugin light sindresorhus/pure
-
-## zinc prompt
-# zplugin ice atload'source ~/.purezinc' lucid 
-# zplugin light robobenklein/zinc
-
 ## completions
 zplugin light zsh-users/zsh-completions
 zplugin light zsh-users/zsh-autosuggestions
@@ -49,3 +47,16 @@ zplugin light supercrabtree/k
 zplugin light rupa/z
 zplugin light changyuheng/fz
 zplugin light hlissner/zsh-autopair
+
+## powerlevel10k prompt
+# zplugin ice wait'!' lucid atload'source ~/.p10k.zsh; _p9k_precmd' nocd
+zplugin ice depth=1 atload'source ~/.p10k.zsh'
+zplugin light romkatv/powerlevel10k
+
+## pure prompt
+# zplugin ice pick"async.zsh" src"pure.zsh"
+# zplugin light sindresorhus/pure
+
+## zinc prompt
+# zplugin ice atload'source ~/.purezinc' lucid
+# zplugin light robobenklein/zinc

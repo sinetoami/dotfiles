@@ -42,19 +42,35 @@
 ! ------------------------------------------------------------------------------
 ! URxvt Font configuration
 ! ------------------------------------------------------------------------------
+! improve font rendering
+Xft.dpi: 	96
+Xft.antialias: 	true
+Xft.hinting: 	true
+Xft.rgba:	rgb
+Xft.autohint:  	false
+Xft.hintstyle:	hintslight
+Xft.lcdfilter:	lcddefault
 
 ! font spacing
 URxvt*letterSpace:	0
 URxvt.lineSpace:	3
 
 ! font type
-URxvt*font:		xft:DroidSansMono Nerd Font:size=13
+URxvt*font:		xft: MesloLGLDZ Nerd Font:style=Regular:size=14,\
+			xft: Bitstream Vera Sans Mono:size=14,\
+			xft: Andale Mono:size=14,\
+			xft: Courier New:size=14,\
+			xft: FreeMono:size=14,\
+			xft: DejaVu Sans Mono:size=14,\
+			xft: Symbola:size=14,\
+			xft: Unifont:size=14,\
 
 ! ------------------------------------------------------------------------------
 ! URxvt configs
 ! ------------------------------------------------------------------------------
 
 ! general settings
+URxvt.imLocale:                 en_US.UTF-8
 URxvt*title:			urxvt
 URxvt*termName: 		rxvt-unicode-256color
 URxvt*loginShell: 		true
@@ -62,7 +78,7 @@ URxvt.xftAntialias:     	true
 URxvt.xftHinting:		true
 URxvt.iso14755: 		false
 URxvt.iso14755_52: 		false
-URxvt.print-pipe: 		"cat > /dev/null"
+URxvt.print-pipe: 		"cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))"
 URxvt.secondaryScreen: 		true
 URxvt.secondaryScroll: 		false
 URxvt*scrollTtyOutput: 		false
@@ -113,14 +129,6 @@ URxvt*cursorBlink: 		true
 ! ------------------------------------------------------------------------------
 ! Xft Font Configuration
 ! ------------------------------------------------------------------------------
-! improve font rendering
-Xft.dpi: 	96
-Xft.antialias: 	true
-Xft.hinting: 	true
-Xft.rgba:	rgb
-Xft.autohint:  	false
-Xft.hintstyle:	hintslight
-Xft.lcdfilter:	lcddefault
 
 ! ------------------------------------------------------------------------------
 ! Rofi Configuration

@@ -3,3 +3,4 @@
 tmux/.tmux/plugins
 tmux/.tmux/resurrect
 nvim/.nvim/bundle
+zsh/my-zsh.sh

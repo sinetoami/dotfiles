@@ -84,7 +84,7 @@ function __pacman() {
 		error "$1: failed to install ${@:2}"
 		exit 1
 	}
-	
+
 	okay "pacman: packages sucessfully installed."
 }
 
